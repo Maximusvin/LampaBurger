@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { white, yellow } from '../../assets/colors';
 
 export const Header = styled.header`
   position: fixed;
@@ -11,16 +12,17 @@ export const Header = styled.header`
   align-items: center;
   padding: 10px 100px;
   background-color: #0f0f0f;
-  color: #fff;
+  color: ${white};
   transition: all 0.3s linear;
 `;
 
-export const LogoWrap = styled.div`
+export const Logo = styled.a`
   display: flex;
   align-items: center;
+  color: ${white};
 `;
 
-export const Logo = styled.img`
+export const ImgLogo = styled.img`
   width: 30px;
   margin-right: 15px;
 `;
@@ -28,4 +30,29 @@ export const Logo = styled.img`
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: 700;
+`;
+
+export const Color = styled.span`
+  color: ${yellow};
+`;
+
+export const ControlsWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+`;
+
+export const ButtonAuth = styled.button`
+  color: ${white};
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s linear;
+
+  :hover {
+    color: ${yellow};
+  }
 `;

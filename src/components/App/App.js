@@ -1,11 +1,12 @@
 // import { Route } from 'react-router-dom';
-import { NavBar } from 'components';
+import { NavBar, Menu } from 'components';
 // import { AuthPage, ContactsPage, UseFulPage } from 'views';
 
 function App() {
   return (
     <>
       <NavBar />
+      <Menu />
     </>
   );
 }
