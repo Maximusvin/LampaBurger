@@ -1,3 +1,4 @@
+import { ColorStyle } from 'components';
 import { ShoppingBasket, AccountCircle } from '@material-ui/icons';
 import {
   Header,
@@ -6,10 +7,10 @@ import {
   Title,
   ControlsWrap,
   ButtonAuth,
-  Color,
 } from './NavBar.style';
 
 import logo from '../../assets/images/burger.svg';
+import { yellow } from '../../assets/colors';
 
 const NavBar = () => {
   return (
@@ -18,7 +19,7 @@ const NavBar = () => {
         <ImgLogo src={logo} alt="Logo LampaBurger" />
         <Title>
           Lampa
-          <Color>Burger</Color>
+          <ColorStyle color={yellow}>Burger</ColorStyle>
         </Title>
       </Logo>
       <ControlsWrap>

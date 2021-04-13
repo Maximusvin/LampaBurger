@@ -1,19 +1,21 @@
-import { Layout } from 'components';
-import { OfferWrap, Description, Title } from './Offer.style';
+import { Layout, ColorStyle } from 'components';
+import { OfferWrap, Description, Title, SubTitle, Button } from './Offer.style';
+import { yellow } from '../../assets/colors/index';
 
 const Offer = () => (
   <OfferWrap>
     <Layout>
       <Description>
         <Title>
-          Lampa <span>Бургер</span> - твой яркий вкус!
+          <ColorStyle color={yellow}>Lampa</ColorStyle>
+          Бургер - твой яркий вкус!
         </Title>
-        <p>
-          У каждого есть идеальная пара. Иногда приходится путешествовать по
-          миру в её поисках. И где бы ни был ваш идеальный бургер, он всегда
-          будет рядом вместе с VinBurger.
-        </p>
-        <a href="#menu">Меню</a>
+        <SubTitle>
+          Доставка <ColorStyle color={yellow}>БУРГЕРОВ</ColorStyle> в Виннице до
+          29 минут или самый яркий{' '}
+          <ColorStyle color={yellow}>БУРГЕР</ColorStyle> в подарок!
+        </SubTitle>
+        <Button href="#menu">Меню</Button>
       </Description>
     </Layout>
   </OfferWrap>

@@ -8,7 +8,7 @@ const Menu = () => {
     <MenuWrap>
       <Offer />
       <Layout>
-        <Section>
+        <Section id="menu">
           <Title>Бургеры</Title>
           <ListItem itemList={dbMenu.burger} />
         </Section>

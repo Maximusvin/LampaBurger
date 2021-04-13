@@ -13,6 +13,6 @@ export const Title = styled.h2`
 `;
 
 export const Section = styled.section`
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 50px;
 `;

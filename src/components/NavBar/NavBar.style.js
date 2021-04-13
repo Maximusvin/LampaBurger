@@ -32,10 +32,6 @@ export const Title = styled.h1`
   font-weight: 700;
 `;
 
-export const Color = styled.span`
-  color: ${yellow};
-`;
-
 export const ControlsWrap = styled.div`
   display: flex;
   align-items: center;

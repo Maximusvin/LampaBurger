@@ -5,6 +5,13 @@ import burger4 from 'assets/images/menu/burgers/react-burger.png';
 import burger5 from 'assets/images/menu/burgers/sass-burger.png';
 import burger6 from 'assets/images/menu/burgers/vue-burger.png';
 
+import sets1 from 'assets/images/menu/sets/sets1.png';
+import sets2 from 'assets/images/menu/sets/sets2.png';
+import sets3 from 'assets/images/menu/sets/sets3.png';
+import sets4 from 'assets/images/menu/sets/sets4.png';
+import sets5 from 'assets/images/menu/sets/sets5.png';
+import sets6 from 'assets/images/menu/sets/sets6.png';
+
 const dbMenu = {
   burger: [
     {
@@ -76,71 +83,46 @@ const dbMenu = {
   ],
   other: [
     {
-      name: 'Coдa',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112846/other/soda_ytgi7m.png',
+      name: 'NPM Install Fries ',
+      url: sets1,
       id: 1,
-      price: 50,
-      choices: ['Coca-cola', 'Fanta', 'Mirinda', 'Sprite'],
-    },
-    {
-      name: 'Чайкофф',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112847/other/tea_vciape.png',
-      id: 2,
       price: 70,
-      choices: ['Черный', 'Зеленый'],
+      choices: ['Перец', 'Соль'],
     },
     {
-      name: 'Лукошко Фри',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112843/other/french-fries_casn81.png',
+      name: 'Landing Set',
+      url: sets2,
+      id: 2,
+      price: 375,
+      choices: ['Кетчуп', 'Майонез'],
+    },
+    {
+      name: 'MultiPage Set',
+      url: sets3,
       id: 3,
-      price: 75,
+      price: 200,
+      choices: ['Морская капуста', 'Васаби'],
     },
     {
-      name: 'Нагиевцы',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112847/other/nuggets_pr5zl1.png',
+      name: 'SinglePage Set',
+      url: sets4,
       id: 4,
-      price: 100,
-      choices: ['Филе', 'Крылья'],
+      price: 375.25,
+      choices: ['Свинина', 'Говядина', 'Баранина'],
     },
     {
-      name: 'Кофе',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112889/other/coffee_koj37m.png',
+      name: 'Sugar For Your Code',
+      url: sets5,
       id: 5,
-      price: 150,
-      choices: ['Эспрессо', 'Капучино'],
+      price: 50.5,
+      choices: ['Coca-Cola', 'Sprite', 'Mirinda', 'Fanta'],
     },
     {
-      name: 'Кола',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112843/other/cola_sp5rer.png',
+      name: 'Webpack Set',
+      url: sets6,
       id: 6,
-      price: 34.5,
-    },
-    {
-      name: 'Sprite',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112844/other/sprite_yd7odk.png',
-      id: 7,
-      price: 34.5,
-    },
-    {
-      name: 'Fanta',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112841/other/fanta_ztwmof.png',
-      id: 8,
-      price: 34.5,
-    },
-    {
-      name: 'Rich',
-      url:
-        'https://res.cloudinary.com/maximusvin/image/upload/v1608112843/other/rich_pdbdiu.png',
-      id: 9,
-      price: 44.3,
+      price: 184.2,
+      choices: ['Майонез', 'Барбекю', 'Кисло-солодкий'],
     },
   ],
 };
