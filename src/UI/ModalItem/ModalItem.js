@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
-import s from './Modal.module.css';
+import { Overlay, Modal } from './ModalItem.style';
 
 const modalRoot = document.querySelector('#modal-root');
 
-class Modal extends Component {
+class ModalItem extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }
@@ -15,24 +15,24 @@ class Modal extends Component {
 
   handleKeyDown = e => {
     if (e.code === 'Escape') {
-      this.props.onCloseModal();
+      this.props.onCloseModal(null);
     }
   };
 
   handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
-      this.props.onCloseModal();
+      this.props.onCloseModal(null);
     }
   };
 
   render() {
     return createPortal(
-      <div className={s.backdrop} onClick={this.handleBackdropClick}>
-        <div className={s.modal}>{this.props.children}</div>
-      </div>,
+      <Overlay onClick={this.handleBackdropClick}>
+        <Modal>{this.props.children}</Modal>
+      </Overlay>,
       modalRoot,
     );
   }
 }
 
-export default Modal;
+export default ModalItem;

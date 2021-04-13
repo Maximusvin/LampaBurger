@@ -67,7 +67,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/images/bg.png');
+  background-color: #000;
 }
 
 a,
@@ -130,4 +130,9 @@ li,
 ul {
   padding: 0;
   margin: 0;
+}
+
+.test {
+  justify-content: space-between;
+  background: transparent;
 }

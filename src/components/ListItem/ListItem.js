@@ -1,19 +1,19 @@
 import { List, Item, Header, Title, Сost, Image } from './ListItem.style';
 
-const ListItem = ({ itemList }) => (
+const ListItem = ({ itemList, setOpenItem }) => (
   <List>
-    {itemList.map(({ id, name, url, price, description, weight, toppings }) => (
-      <Item key={id}>
+    {itemList.map(product => (
+      <Item key={product.id} onClick={() => setOpenItem(product)}>
         <Header>
-          <Title>{name}</Title>
+          <Title>{product.name}</Title>
           <Сost>
-            {price.toLocaleString('ru-RU', {
+            {product.price.toLocaleString('ru-RU', {
               style: 'currency',
               currency: 'UAH',
             })}
           </Сost>
         </Header>
-        <Image src={url} alt={name} />
+        <Image src={product.url} alt={product.name} />
       </Item>
     ))}
   </List>
