@@ -1,7 +1,7 @@
 import { Layout, ListItem, Offer } from 'components';
 
 import { MenuWrap, Title, Section } from './Menu.style';
-import dbMenu from './db-menu';
+import dbMenu from '../db-menu';
 
 const Menu = ({ setOpenItem }) => {
   return (

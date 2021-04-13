@@ -1,6 +1,6 @@
 import { Layout, ColorStyle } from 'components';
 import { OfferWrap, Description, Title, SubTitle, Button } from './Offer.style';
-import { yellow } from '../../assets/colors/index';
+import { yellow } from '../../../assets/colors/index';
 
 const Offer = () => (
   <OfferWrap>

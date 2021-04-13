@@ -40,8 +40,7 @@ export const Input = styled.input`
 `;
 
 export const Total = styled.div`
-  margin-bottom: 5px;
-  width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const Button = styled.button`

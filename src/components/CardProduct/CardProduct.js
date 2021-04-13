@@ -1,4 +1,7 @@
 import { ColorStyle } from 'components';
+import CountItem from './CountItem/CountItem';
+import { useCount } from 'hooks';
+import { totalPriceItem } from '../../services/counter';
 import { yellow } from '../../assets/colors/index';
 
 import {
@@ -11,18 +14,16 @@ import {
   Button,
   FinalCost,
   Add,
+  ImageWrap,
 } from './CardProduct.style';
 
 const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
   const { id, name, url, weight, price, shortcode, description } = openItem;
+  const counter = useCount();
 
   const order = {
-    id,
-    name,
-    url,
-    weight,
-    price,
-    shortcode,
+    ...openItem,
+    count: counter.count,
   };
 
   const onAddToOrder = () => {
@@ -38,39 +39,20 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
           <Description>
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
-          <div>
-            <button
-              type="buttton"
-              // disabled={counter.count <= 1}
-              // onClick={() => counter.setCount(counter.count - 1)}
-            >
-              -
-            </button>
-            <input
-              type="number"
-              min="1"
-              max="100"
-              // value={counter.count < 1 ? 1 : counter.count}
-              // onChange={counter.onChange}
-            />
-            <button
-              type="buttton"
-              // onClick={() => counter.setCount(counter.count + 1)}
-            >
-              +
-            </button>
-          </div>
         </div>
 
         <Control>
           <Button type="button">
-            <FinalCost>{price} грн.</FinalCost>
+            <FinalCost>{totalPriceItem(order)} грн.</FinalCost>
             <Add onClick={onAddToOrder}>Добавить к заказу</Add>
           </Button>
         </Control>
       </DescrProduct>
 
-      <Image src={url} alt={name} />
+      <ImageWrap>
+        <Image src={url} alt={name} />
+        <CountItem {...counter} />
+      </ImageWrap>
     </ProductCard>
   );
 };

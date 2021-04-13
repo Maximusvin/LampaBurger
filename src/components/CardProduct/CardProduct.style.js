@@ -34,9 +34,11 @@ export const Description = styled.p`
   margin-bottom: 24px;
 `;
 
-export const Image = styled.img`
+export const ImageWrap = styled.div`
   width: 35%;
 `;
+
+export const Image = styled.img``;
 
 export const Control = styled.div`
   padding-bottom: 30px;
@@ -91,31 +93,3 @@ export const CountWrapper = styled.span`
   text-align: center;
   transition: all 0.2s cubic-bezier(0.4, 0.01, 0.63, 1);
 `;
-
-// .button:hover .add,
-// .button:focus .add {
-//   background: #ebc700;
-// }
-
-// .countWrapper {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   width: 50%;
-// }
-
-// .countInput {
-//   width: 50%;
-//   font-size: 20px;
-// }
-
-// .countControl {
-//   display: block;
-//   position: relative;
-//   width: 56px;
-// }
-
-// .description span {
-//   color: #ffd900;
-//   line-height: 148.8%;
-// }

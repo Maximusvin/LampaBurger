@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import bgOffer from '../../assets/images/hd-1.jpg';
+import bgOffer from '../../../assets/images/hd-1.jpg';
 
-import { white } from '../../assets/colors';
+import { white } from '../../../assets/colors';
 
 export const OfferWrap = styled.div`
   background: url(${bgOffer});

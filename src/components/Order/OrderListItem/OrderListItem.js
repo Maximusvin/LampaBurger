@@ -1,4 +1,5 @@
 import CloseIcon from '@material-ui/icons/Close';
+import { totalPriceItem } from '../../../services/counter';
 import {
   OrderItem,
   ImageWrap,
@@ -25,10 +26,7 @@ const OrderListItem = ({ order }) => {
       <Description>
         <TopLine>
           <TopLineTitle>{name}</TopLineTitle>
-          <TopLineOrder>
-            {/* {totalPriceItems(price, count).toFixed(2)} ₴ */}
-            {price} грн
-          </TopLineOrder>
+          <TopLineOrder>{totalPriceItem(order)} ₴ грн</TopLineOrder>
         </TopLine>
         <BottomLine>
           <Small>

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { yellow, black } from '../../assets/colors';
+import { yellow, black } from '../../../assets/colors';
 
 export const List = styled.ul`
   display: grid;
