@@ -3,7 +3,6 @@ import { black, white } from '../../assets/colors';
 
 export const MenuWrap = styled.main`
   color: ${white};
-  padding-top: 50px;
   background-size: cover;
   background-color: ${black};
 `;

@@ -1,4 +1,4 @@
-import { Layout, ListItem } from 'components';
+import { Layout, ListItem, Offer } from 'components';
 
 import { MenuWrap, Title, Section } from './Menu.style';
 import dbMenu from './db-menu';
@@ -6,6 +6,7 @@ import dbMenu from './db-menu';
 const Menu = () => {
   return (
     <MenuWrap>
+      <Offer />
       <Layout>
         <Section>
           <Title>Бургеры</Title>
