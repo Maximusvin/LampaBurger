@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/LampaBurger/static/css/main.c85d9bdd.chunk.css",
-    "main.js": "/LampaBurger/static/js/main.d62b4274.chunk.js",
-    "main.js.map": "/LampaBurger/static/js/main.d62b4274.chunk.js.map",
+    "main.js": "/LampaBurger/static/js/main.282532fb.chunk.js",
+    "main.js.map": "/LampaBurger/static/js/main.282532fb.chunk.js.map",
     "runtime-main.js": "/LampaBurger/static/js/runtime-main.8c500f7b.js",
     "runtime-main.js.map": "/LampaBurger/static/js/runtime-main.8c500f7b.js.map",
     "static/js/2.caaaeabe.chunk.js": "/LampaBurger/static/js/2.caaaeabe.chunk.js",
@@ -30,6 +30,6 @@
     "static/js/runtime-main.8c500f7b.js",
     "static/js/2.caaaeabe.chunk.js",
     "static/css/main.c85d9bdd.chunk.css",
-    "static/js/main.d62b4274.chunk.js"
+    "static/js/main.282532fb.chunk.js"
   ]
 }
