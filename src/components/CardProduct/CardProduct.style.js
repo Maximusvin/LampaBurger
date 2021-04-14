@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { yellow, black, white } from '../../assets/colors';
+import { white } from '../../assets/colors';
 
 export const ProductCard = styled.div`
   width: 100%;
@@ -92,4 +92,12 @@ export const CountWrapper = styled.span`
   padding: 12px;
   text-align: center;
   transition: all 0.2s cubic-bezier(0.4, 0.01, 0.63, 1);
+`;
+
+export const ButtonClose = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  cursor: pointer;
 `;

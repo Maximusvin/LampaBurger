@@ -1,7 +1,8 @@
-import { ColorStyle } from 'components';
+import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
+import { ColorStyle } from 'components';
 import { useCount } from 'hooks';
-import { totalPriceItem } from '../../Functions/totalPriceItem';
+import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from '../../assets/colors/index';
 
 import {
@@ -15,10 +16,11 @@ import {
   FinalCost,
   Add,
   ImageWrap,
+  ButtonClose,
 } from './CardProduct.style';
 
 const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
-  const { id, name, url, weight, price, shortcode, description } = openItem;
+  const { name, url, weight, description } = openItem;
   const counter = useCount();
 
   const order = {
@@ -33,6 +35,9 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
 
   return (
     <ProductCard>
+      <ButtonClose onClick={() => setOpenItem(null)}>
+        <CloseIcon style={{ color: '#f7cc10' }} />
+      </ButtonClose>
       <DescrProduct>
         <div>
           <Title>{name}</Title>
@@ -43,7 +48,7 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
 
         <Control>
           <Button type="button">
-            <FinalCost>{totalPriceItem(order)} грн.</FinalCost>
+            <FinalCost>{formatCurrency(totalPriceItem(order))}</FinalCost>
             <Add onClick={onAddToOrder}>Добавить к заказу</Add>
           </Button>
         </Control>

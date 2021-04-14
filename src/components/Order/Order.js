@@ -1,5 +1,5 @@
 import { Layout } from 'components';
-import { totalPriceItem } from 'Functions/totalPriceItem';
+import { totalPriceItem, formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 
 import {
@@ -16,6 +16,8 @@ import {
 
 const Order = ({ orders }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
+
+  const totalCounter = orders.reduce((total, item) => total + item.count, 0);
 
   return (
     <Layout>
@@ -38,7 +40,8 @@ const Order = ({ orders }) => {
             <Input type="text" name="" />
           </Form>
         </OrderContent>
-        <Total>Total: {total} UAH</Total>
+        <Total>Всего товаров в корзине: {totalCounter}</Total>
+        <Total>Сумма заказа: {formatCurrency(total)}</Total>
         <Button>Button</Button>
       </OrderWrap>
     </Layout>
