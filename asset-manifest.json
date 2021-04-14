@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/LampaBurger/static/css/main.c85d9bdd.chunk.css",
+    "main.js": "/LampaBurger/static/js/main.46176685.chunk.js",
+    "main.js.map": "/LampaBurger/static/js/main.46176685.chunk.js.map",
+    "runtime-main.js": "/LampaBurger/static/js/runtime-main.8c500f7b.js",
+    "runtime-main.js.map": "/LampaBurger/static/js/runtime-main.8c500f7b.js.map",
+    "static/js/2.7a223a8e.chunk.js": "/LampaBurger/static/js/2.7a223a8e.chunk.js",
+    "static/js/2.7a223a8e.chunk.js.map": "/LampaBurger/static/js/2.7a223a8e.chunk.js.map",
+    "index.html": "/LampaBurger/index.html",
+    "static/css/main.c85d9bdd.chunk.css.map": "/LampaBurger/static/css/main.c85d9bdd.chunk.css.map",
+    "static/js/2.7a223a8e.chunk.js.LICENSE.txt": "/LampaBurger/static/js/2.7a223a8e.chunk.js.LICENSE.txt",
+    "static/media/angular-burger.96ea2d3d.png": "/LampaBurger/static/media/angular-burger.96ea2d3d.png",
+    "static/media/burger.350271d5.svg": "/LampaBurger/static/media/burger.350271d5.svg",
+    "static/media/grid-burger.311b0762.png": "/LampaBurger/static/media/grid-burger.311b0762.png",
+    "static/media/hd-1.0228b37b.jpg": "/LampaBurger/static/media/hd-1.0228b37b.jpg",
+    "static/media/js-burger.e7a9d1f6.png": "/LampaBurger/static/media/js-burger.e7a9d1f6.png",
+    "static/media/index.css": "/LampaBurger/static/media/montserrat-v15-latin_cyrillic-regular.f263cfd0.woff2",
+    "static/media/react-burger.3f6c5cab.png": "/LampaBurger/static/media/react-burger.3f6c5cab.png",
+    "static/media/sass-burger.f3b82ccf.png": "/LampaBurger/static/media/sass-burger.f3b82ccf.png",
+    "static/media/sets1.4162fbdf.png": "/LampaBurger/static/media/sets1.4162fbdf.png",
+    "static/media/sets2.d80a95a0.png": "/LampaBurger/static/media/sets2.d80a95a0.png",
+    "static/media/sets3.4176e761.png": "/LampaBurger/static/media/sets3.4176e761.png",
+    "static/media/sets4.e3fa5a9a.png": "/LampaBurger/static/media/sets4.e3fa5a9a.png",
+    "static/media/sets5.4d70203f.png": "/LampaBurger/static/media/sets5.4d70203f.png",
+    "static/media/sets6.c028347d.png": "/LampaBurger/static/media/sets6.c028347d.png",
+    "static/media/vue-burger.ef867b47.png": "/LampaBurger/static/media/vue-burger.ef867b47.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c500f7b.js",
+    "static/js/2.7a223a8e.chunk.js",
+    "static/css/main.c85d9bdd.chunk.css",
+    "static/js/main.46176685.chunk.js"
+  ]
+}
