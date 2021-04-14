@@ -1,4 +1,5 @@
 import { Layout } from 'components';
+import { totalPriceItem } from 'Functions/totalPriceItem';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 
 import {
@@ -14,7 +15,6 @@ import {
 } from './Order.style';
 
 const Order = ({ orders }) => {
-  const totalPriceItem = order => (order.price * order.count).toFixed(2);
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
 
   return (

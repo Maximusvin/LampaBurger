@@ -1,7 +1,7 @@
 import { ColorStyle } from 'components';
 import CountItem from './CountItem/CountItem';
 import { useCount } from 'hooks';
-import { totalPriceItem } from '../../services/counter';
+import { totalPriceItem } from '../../Functions/totalPriceItem';
 import { yellow } from '../../assets/colors/index';
 
 import {
