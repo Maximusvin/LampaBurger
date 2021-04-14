@@ -14,6 +14,10 @@ export const Description = styled.div`
   padding-top: 150px;
   padding-bottom: 150px;
   color: ${white};
+
+  @media (max-width: 750px) {
+    width: 500px;
+  }
 `;
 
 export const Title = styled.h2`
