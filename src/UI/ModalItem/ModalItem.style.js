@@ -24,4 +24,16 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+  @media (max-width: 992px) {
+    width: 750px;
+  }
+
+  @media (max-width: 768px) {
+    width: 520px;
+  }
+
+  @media (max-width: 576px) {
+    width: 320px;
+  }
 `;

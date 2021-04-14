@@ -15,8 +15,16 @@ export const Description = styled.div`
   padding-bottom: 150px;
   color: ${white};
 
-  @media (max-width: 750px) {
-    width: 500px;
+  @media (max-width: 992px) {
+    width: 750px;
+  }
+
+  @media (max-width: 768px) {
+    width: 520px;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
   }
 `;
 
@@ -26,6 +34,10 @@ export const Title = styled.h2`
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 25px;
+
+  @media (max-width: 576px) {
+    font-size: 33px;
+  }
 `;
 
 export const SubTitle = styled.p`
@@ -34,6 +46,11 @@ export const SubTitle = styled.p`
   line-height: 1.5em;
   font-size: 26px;
   font-weight: 500;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    font-size: 20px;
+  }
 `;
 
 export const Button = styled.a`

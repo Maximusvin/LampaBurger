@@ -11,6 +11,10 @@ export const Item = styled.li`
   cursor: pointer;
   max-width: 500px;
   font-size: 20px;
+
+  @media (max-width: 576px) {
+    max-width: 100%;
+  }
 `;
 
 export const Header = styled.div`
@@ -24,6 +28,10 @@ export const Title = styled.p`
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 700;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
 `;
 
 export const Сost = styled.p`
@@ -40,5 +48,10 @@ export const Image = styled.img`
 
   :hover {
     transform: rotate(5deg) scale(1.1);
+  }
+
+  @media (max-width: 576px) {
+    max-width: 100%;
+    top: -12px;
   }
 `;

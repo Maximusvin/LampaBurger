@@ -11,12 +11,21 @@ export const Title = styled.h2`
   font-size: 55px;
   margin-bottom: 50px;
   text-align: center;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const OrderContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 `;
 
 export const OrderList = styled.ul`
@@ -26,6 +35,12 @@ export const OrderList = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   background-color: #1d1d1d;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
 `;
 
 export const Form = styled.form`

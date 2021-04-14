@@ -5,7 +5,7 @@ export const Header = styled.header`
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 999;
   display: flex;
   justify-content: space-between;
@@ -14,6 +14,10 @@ export const Header = styled.header`
   background-color: #0f0f0f;
   color: ${white};
   transition: all 0.3s linear;
+
+  @media (max-width: 576px) {
+    padding: 10px 15px;
+  }
 `;
 
 export const Logo = styled.a`
