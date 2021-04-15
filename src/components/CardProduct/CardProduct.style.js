@@ -6,14 +6,14 @@ export const ProductCard = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${white};
-  padding: 25px;
+  padding: 40px;
 `;
 
 export const DescrProduct = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 55%;
+  width: 60%;
   margin-right: 20px;
 `;
 
@@ -21,7 +21,7 @@ export const Title = styled.h2`
   font-size: 38px;
   line-height: 58px;
   color: #f4f4f4;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 `;
 
 export const Description = styled.p`
@@ -40,13 +40,12 @@ export const ImageWrap = styled.div`
 
 export const Image = styled.img``;
 
-export const Control = styled.div`
-  padding-bottom: 30px;
-`;
+export const Control = styled.div``;
 
 export const Button = styled.button`
   background: #0f0f0f;
   display: flex;
+
   align-items: center;
   outline: none;
   width: 100%;

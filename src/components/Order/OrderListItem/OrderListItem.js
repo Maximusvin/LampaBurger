@@ -14,7 +14,7 @@ import {
 } from './OrderListItem.style';
 
 const OrderListItem = ({ order }) => {
-  const { name, url, price, weight, shortcode } = order;
+  const { name, url, weight, shortcode } = order;
 
   return (
     <OrderItem>

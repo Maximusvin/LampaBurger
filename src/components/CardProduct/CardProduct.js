@@ -1,7 +1,8 @@
 import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
+import Toppings from './Toppings/Toppings';
 import { ColorStyle } from 'components';
-import { useCount } from 'hooks';
+import { useCount, useToppings } from 'hooks';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from '../../assets/colors/index';
 
@@ -22,10 +23,12 @@ import {
 const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
   const { name, url, weight, description } = openItem;
   const counter = useCount();
+  const toppings = useToppings(openItem);
 
   const order = {
     ...openItem,
     count: counter.count,
+    topping: toppings.toppings,
   };
 
   const onAddToOrder = () => {
@@ -44,6 +47,7 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
           <Description>
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
+          {openItem.toppings && <Toppings {...toppings} />}
         </div>
 
         <Control>

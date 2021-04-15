@@ -16,8 +16,7 @@ export const Modal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  height: 400px;
+  width: 900px;
   background-color: #1d1d1d;
   border-radius: 3px;
   display: flex;
