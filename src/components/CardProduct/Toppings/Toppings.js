@@ -6,7 +6,6 @@ import {
 } from './Toppings.style';
 
 const Toppings = ({ toppings, checkToppings }) => {
-  console.log(toppings);
   return (
     <>
       <Title>Добавки</Title>

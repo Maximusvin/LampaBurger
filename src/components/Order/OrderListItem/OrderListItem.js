@@ -14,13 +14,16 @@ import {
 } from './OrderListItem.style';
 
 const OrderListItem = ({ order }) => {
-  const { name, url, weight, shortcode } = order;
+  const { name, url, weight, shortcode, topping } = order;
+  const toppingCheck = topping
+    .filter(item => item.checked)
+    .map(item => item.name)
+    .join(', ');
 
   return (
     <OrderItem>
       <ImageWrap>
         <Image src={url} alt={name} />
-        {/* <CounterProducts {...counter} /> */}
       </ImageWrap>
 
       <Description>
@@ -29,9 +32,13 @@ const OrderListItem = ({ order }) => {
           <TopLineOrder>{formatCurrency(totalPriceItem(order))}</TopLineOrder>
         </TopLine>
         <BottomLine>
-          <Small>
-            {shortcode} {weight}
-          </Small>
+          {toppingCheck && (
+            <Small>
+              {/* {shortcode}  */}
+              {toppingCheck}
+            </Small>
+          )}
+
           <Button>
             <CloseIcon style={{ color: '#f7cc10' }} />
           </Button>
