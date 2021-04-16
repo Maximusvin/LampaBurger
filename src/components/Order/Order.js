@@ -16,7 +16,6 @@ import {
 
 const Order = ({ orders }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
-
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);
 
   return (
@@ -42,7 +41,7 @@ const Order = ({ orders }) => {
         </OrderContent>
         <Total>Всего товаров в корзине: {totalCounter}</Total>
         <Total>Сумма заказа: {formatCurrency(total)}</Total>
-        <Button>Button</Button>
+        <Button>Оформить заказ</Button>
       </OrderWrap>
     </Layout>
   );

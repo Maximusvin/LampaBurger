@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ToppingWrap = styled.div`
+export const ChoiceWrap = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -12,7 +12,7 @@ export const Title = styled.h3`
   margin-bottom: 10px;
 `;
 
-export const ToppingLabel = styled.label`
+export const ChoiceLabel = styled.label`
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -20,10 +20,7 @@ export const ToppingLabel = styled.label`
   margin-bottom: 5px;
 `;
 
-export const ToppingCheckbox = styled.input`
+export const ChoiceRadio = styled.input`
   cursor: pointer;
-  width: 15px;
-  height: 15px;
   margin-right: 5px;
-  border-radius: 5px;
 `;

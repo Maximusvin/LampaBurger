@@ -45,7 +45,6 @@ export const Control = styled.div``;
 export const Button = styled.button`
   background: #0f0f0f;
   display: flex;
-
   align-items: center;
   outline: none;
   width: 100%;
@@ -59,10 +58,10 @@ export const Button = styled.button`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+  padding: 0;
 
-  :hover,
-  :focus {
-    border: 4px solid #ebc700;
+  :hover {
+    border: 4px solid #f1ce03;
   }
 `;
 
@@ -73,15 +72,21 @@ export const FinalCost = styled.span`
   text-align: center;
   font-size: 18px;
   text-transform: none;
+  display: block;
 `;
 
 export const Add = styled.span`
+  display: block;
   width: 65%;
   color: #0f0f0f;
   background: #ffd900;
   padding: 12px;
   text-align: center;
   transition: all 0.2s cubic-bezier(0.4, 0.01, 0.63, 1);
+
+  :hover {
+    background: #f1ce03;
+  }
 `;
 
 export const CountWrapper = styled.span`

@@ -1,8 +1,10 @@
 import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
 import Toppings from './Toppings/Toppings';
+import Choices from './Choices/Choices';
+
 import { ColorStyle } from 'components';
-import { useCount, useToppings } from 'hooks';
+import { useCount, useToppings, useChoices } from 'hooks';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from '../../assets/colors/index';
 
@@ -24,17 +26,22 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
   const { name, url, weight, description } = openItem;
   const counter = useCount();
   const toppings = useToppings(openItem);
+  const choices = useChoices(openItem);
 
   const order = {
     ...openItem,
     count: counter.count,
     topping: toppings.toppings,
+    choice: choices.choice,
   };
 
   const onAddToOrder = () => {
     setOrders([...orders, order]);
     setOpenItem(null);
   };
+
+  console.log('openItem.choices ', openItem.choices);
+  console.log('order.choice ', order.choice);
 
   return (
     <ProductCard>
@@ -48,12 +55,17 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
           {openItem.toppings && <Toppings {...toppings} />}
+          {openItem.choices && <Choices {...choices} openItem={openItem} />}
         </div>
 
         <Control>
-          <Button type="button">
+          <Button
+            type="button"
+            onClick={onAddToOrder}
+            disabled={openItem.choices && !order.choice}
+          >
             <FinalCost>{formatCurrency(totalPriceItem(order))}</FinalCost>
-            <Add onClick={onAddToOrder}>Добавить к заказу</Add>
+            <Add>Добавить к заказу</Add>
           </Button>
         </Control>
       </DescrProduct>

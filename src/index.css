@@ -156,4 +156,5 @@ input[type='number']::-webkit-outer-spin-button {
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
+  border: 4px solid #f1ce03;
 }

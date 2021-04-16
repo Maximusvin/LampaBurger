@@ -1,14 +1,7 @@
 import { useState } from 'react';
 
-const getTopping = toppings =>
-  toppings.map(item => ({
-    name: item,
-    checked: false,
-  }));
-
-export const useChoices = openItem => {
-  // const readyTopping = openItem.toppings ? getTopping(openItem.toppings) : [];
-  const [choice, setChoice] = useState(openItem.choices);
+export const useChoices = () => {
+  const [choice, setChoice] = useState('');
 
   const checkChoices = e => setChoice(e.target.value);
 

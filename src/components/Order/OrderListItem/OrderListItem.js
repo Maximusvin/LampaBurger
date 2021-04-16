@@ -1,5 +1,6 @@
 import CloseIcon from '@material-ui/icons/Close';
 import { totalPriceItem, formatCurrency } from 'Functions';
+
 import {
   OrderItem,
   ImageWrap,
@@ -14,7 +15,8 @@ import {
 } from './OrderListItem.style';
 
 const OrderListItem = ({ order }) => {
-  const { name, url, weight, shortcode, topping } = order;
+  const { name, url, choice, topping } = order;
+
   const toppingCheck = topping
     .filter(item => item.checked)
     .map(item => item.name)
@@ -32,12 +34,8 @@ const OrderListItem = ({ order }) => {
           <TopLineOrder>{formatCurrency(totalPriceItem(order))}</TopLineOrder>
         </TopLine>
         <BottomLine>
-          {toppingCheck && (
-            <Small>
-              {/* {shortcode}  */}
-              {toppingCheck}
-            </Small>
-          )}
+          {toppingCheck && <Small>{toppingCheck}</Small>}
+          {choice && <Small>{choice}</Small>}
 
           <Button>
             <CloseIcon style={{ color: '#f7cc10' }} />
