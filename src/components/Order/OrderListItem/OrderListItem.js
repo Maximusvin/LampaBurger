@@ -1,7 +1,8 @@
 import CloseIcon from '@material-ui/icons/Close';
+import CreateIcon from '@material-ui/icons/Create';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import CountItem from '../../CardProduct/CountItem/CountItem';
-import { useCount, useOrders } from 'hooks';
+import { useCount } from 'hooks';
 
 import {
   OrderItem,
@@ -16,8 +17,8 @@ import {
   Button,
 } from './OrderListItem.style';
 
-const OrderListItem = ({ order, onDelete }) => {
-  const { name, url, choice, topping, id, shortcode, weight, count } = order;
+const OrderListItem = ({ order, onDelete, setOpenItem, index }) => {
+  const { name, url, choice, topping, shortcode, weight, count } = order;
   const counter = useCount(count);
 
   const newOrder = { ...order, count: counter.count };
@@ -51,9 +52,14 @@ const OrderListItem = ({ order, onDelete }) => {
             </Small>
           )}
 
-          <Button onClick={() => onDelete(id)}>
-            <CloseIcon style={{ color: '#f7cc10' }} />
-          </Button>
+          <div>
+            <Button onClick={() => setOpenItem({ ...order, index })}>
+              <CreateIcon style={{ color: '#f7cc10' }} />
+            </Button>
+            <Button onClick={() => onDelete(index)}>
+              <CloseIcon style={{ color: '#f7cc10' }} />
+            </Button>
+          </div>
         </BottomLine>
       </Description>
     </OrderItem>

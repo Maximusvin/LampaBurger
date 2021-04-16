@@ -75,6 +75,10 @@ export const BottomLine = styled.div`
 export const Button = styled.button`
   background: transparent;
   cursor: pointer;
+
+  :not(:last-child) {
+    margin-right: 10px;
+  }
 `;
 
 export const Small = styled.small`

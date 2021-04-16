@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Order {...orders} />
+      <Order {...orders} openItem={openItem} setOpenItem={setOpenItem} />
       <Menu setOpenItem={setOpenItem} />
 
       {openItem && (

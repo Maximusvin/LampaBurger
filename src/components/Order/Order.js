@@ -14,12 +14,12 @@ import {
   EmptyList,
 } from './Order.style';
 
-const Order = ({ orders, setOrders }) => {
+const Order = ({ orders, setOrders, setOpenItem }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);
 
   const deleteItem = idx =>
-    setOrders([...orders].filter(item => item.id !== idx));
+    setOrders(orders.filter((item, index) => index !== idx));
 
   return (
     <Layout>
@@ -28,11 +28,13 @@ const Order = ({ orders, setOrders }) => {
         <OrderContent>
           {orders.length > 0 ? (
             <OrderList>
-              {orders.map(order => (
+              {orders.map((order, index) => (
                 <OrderListItem
                   key={order.id + order.name}
                   order={order}
                   onDelete={deleteItem}
+                  setOpenItem={setOpenItem}
+                  index={index}
                 />
               ))}
             </OrderList>

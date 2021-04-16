@@ -24,9 +24,10 @@ import {
 
 const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
   const { name, url, weight, description } = openItem;
-  const counter = useCount(1);
+  const counter = useCount(openItem.count);
   const toppings = useToppings(openItem);
   const choices = useChoices(openItem);
+  const isEdit = openItem.index > -1;
 
   const order = {
     ...openItem,
@@ -37,6 +38,13 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
 
   const onAddToOrder = () => {
     setOrders([...orders, order]);
+    setOpenItem(null);
+  };
+
+  const editOrder = () => {
+    const newOrders = [...orders];
+    newOrders[openItem.index] = order;
+    setOrders(newOrders);
     setOpenItem(null);
   };
 
@@ -58,11 +66,11 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
         <Control>
           <Button
             type="button"
-            onClick={onAddToOrder}
+            onClick={isEdit ? editOrder : onAddToOrder}
             disabled={openItem.choices && !order.choice}
           >
             <FinalCost>{formatCurrency(totalPriceItem(order))}</FinalCost>
-            <Add>Добавить к заказу</Add>
+            <Add>{isEdit ? 'Редактировать заказ' : 'Добавить к заказу'}</Add>
           </Button>
         </Control>
       </DescrProduct>
