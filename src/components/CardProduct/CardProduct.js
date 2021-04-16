@@ -24,7 +24,7 @@ import {
 
 const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
   const { name, url, weight, description } = openItem;
-  const counter = useCount();
+  const counter = useCount(1);
   const toppings = useToppings(openItem);
   const choices = useChoices(openItem);
 
@@ -39,9 +39,6 @@ const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
     setOrders([...orders, order]);
     setOpenItem(null);
   };
-
-  console.log('openItem.choices ', openItem.choices);
-  console.log('order.choice ', order.choice);
 
   return (
     <ProductCard>

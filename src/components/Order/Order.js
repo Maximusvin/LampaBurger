@@ -14,9 +14,12 @@ import {
   EmptyList,
 } from './Order.style';
 
-const Order = ({ orders }) => {
+const Order = ({ orders, setOrders }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);
+
+  const deleteItem = idx =>
+    setOrders([...orders].filter(item => item.id !== idx));
 
   return (
     <Layout>
@@ -26,7 +29,11 @@ const Order = ({ orders }) => {
           {orders.length > 0 ? (
             <OrderList>
               {orders.map(order => (
-                <OrderListItem key={order.id} order={order} />
+                <OrderListItem
+                  key={order.id + order.name}
+                  order={order}
+                  onDelete={deleteItem}
+                />
               ))}
             </OrderList>
           ) : (
