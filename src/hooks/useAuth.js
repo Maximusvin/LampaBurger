@@ -16,6 +16,7 @@ export const useAuth = authFirebase => {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
+        console.log(user);
         setAuthentication(user);
       } else setAuthentication(null);
     });

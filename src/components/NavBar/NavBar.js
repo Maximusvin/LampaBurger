@@ -11,6 +11,7 @@ import {
   UserWrap,
   UserName,
   ButtonCart,
+  UserImg,
 } from './NavBar.style';
 
 import logo from '../../assets/images/burger.svg';
@@ -34,6 +35,7 @@ const NavBar = ({ authentication, logIn, logOut }) => {
         {authentication ? (
           <UserWrap>
             <UserName>{authentication.displayName}</UserName>
+            <UserImg src={authentication.photoURL} alt="" />
             <ButtonAuth onClick={logOut}>
               <ExitToApp />
             </ButtonAuth>

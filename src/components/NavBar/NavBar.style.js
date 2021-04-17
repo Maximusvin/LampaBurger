@@ -81,3 +81,8 @@ export const UserWrap = styled.div`
 export const UserName = styled.p`
   margin-right: 10px;
 `;
+
+export const UserImg = styled.img`
+  width: 30px;
+  margin-right: 20px;
+`;
