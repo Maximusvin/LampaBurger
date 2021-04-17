@@ -1,5 +1,6 @@
 import { ColorStyle } from 'components';
-import { ShoppingBasket, AccountCircle } from '@material-ui/icons';
+import { ShoppingBasket, AccountCircle, ExitToApp } from '@material-ui/icons';
+
 import {
   Header,
   Logo,
@@ -7,12 +8,15 @@ import {
   Title,
   ControlsWrap,
   ButtonAuth,
+  UserWrap,
+  UserName,
+  ButtonCart,
 } from './NavBar.style';
 
 import logo from '../../assets/images/burger.svg';
 import { yellow } from '../../assets/colors';
 
-const NavBar = () => {
+const NavBar = ({ authentication, logIn, logOut }) => {
   return (
     <Header>
       <Logo href="#">
@@ -23,10 +27,22 @@ const NavBar = () => {
         </Title>
       </Logo>
       <ControlsWrap>
-        <ShoppingBasket />
-        <ButtonAuth>
-          <AccountCircle />
-        </ButtonAuth>
+        <ButtonCart>
+          <ShoppingBasket />
+        </ButtonCart>
+
+        {authentication ? (
+          <UserWrap>
+            <UserName>{authentication.displayName}</UserName>
+            <ButtonAuth onClick={logOut}>
+              <ExitToApp />
+            </ButtonAuth>
+          </UserWrap>
+        ) : (
+          <ButtonAuth onClick={logIn}>
+            <AccountCircle />
+          </ButtonAuth>
+        )}
       </ControlsWrap>
     </Header>
   );

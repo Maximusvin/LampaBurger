@@ -40,7 +40,6 @@ export const ControlsWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60px;
 `;
 
 export const ButtonAuth = styled.button`
@@ -55,4 +54,30 @@ export const ButtonAuth = styled.button`
   :hover {
     color: ${yellow};
   }
+`;
+
+export const ButtonCart = styled.button`
+  color: ${white};
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s linear;
+  margin-right: 20px;
+
+  :hover {
+    color: ${yellow};
+  }
+`;
+
+export const UserWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s linear;
+`;
+
+export const UserName = styled.p`
+  margin-right: 10px;
 `;
