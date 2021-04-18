@@ -1,0 +1,115 @@
+{
+  "burger": [
+    {
+      "name": "Grid Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744959/lampaburger/burgers/grid-burger_oxzbof.png",
+      "id": 1,
+      "price": 250,
+      "description": "МНОГО БЕКОНА / СОУС ЧЕДДЕР / САЛАТ / ДВОЙНОЙ ЧЕДДЕР / БЕКОНОВЫЙ ДЖЕМ / СОУС BBQ / КРАНЧ ЛУК /",
+      "weight": "335г",
+      "shortcode": "Очень вкусный бургер с беконом /",
+      "toppings": [
+        "Бекон",
+        "Кетчуп",
+        "Сыр Чеддер",
+        "Огурцы",
+        "Помидор",
+        "Халапеньо"
+      ]
+    },
+    {
+      "name": "Angular Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744959/lampaburger/burgers/angular-burger_f3myi9.png",
+      "id": 2,
+      "price": 299.9,
+      "description": "САЛАТ / ТОЛСТАЯ КОТЛЕТА / МНОГО СЫРА / СОУС BBQ / КРАНЧ ЛУК /",
+      "weight": "335г",
+      "shortcode": "Бургер с толстой котлетой /",
+      "toppings": ["Бекон", "Красный лук"]
+    },
+    {
+      "name": "Vue Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744958/lampaburger/burgers/vue-burger_t9cuaj.png",
+      "id": 3,
+      "price": 205,
+      "description": "ДВОЙНОЙ ЧЕДДЕР / БЕКОНОВЫЙ ДЖЕМ / СОУС BBQ / КРАНЧ ЛУК /",
+      "shortcode": "Двойной Чеддер и соус BBQ /",
+      "weight": "335г",
+      "toppings": ["Ананас", "Майонец"]
+    },
+    {
+      "name": "JS Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744960/lampaburger/burgers/js-burger_tcvcl7.png",
+      "id": 4,
+      "price": 150,
+      "description": "БЕКОН / СОУС ЧЕДДЕР / САЛАТ / ДВОЙНОЙ ЧЕДДЕР / БЕКОНОВЫЙ ДЖЕМ / СОУС BBQ / КРАНЧ ЛУК /",
+      "shortcode": "Салат и беконовый джем /",
+      "weight": "335г",
+      "toppings": ["Спаржа", "Красный лук", "Конжут"]
+    },
+    {
+      "name": "React Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744960/lampaburger/burgers/react-burger_jifiel.png",
+      "id": 5,
+      "price": 299.9,
+      "description": "МНОГО БЕКОНА / СОУС ЧЕДДЕР / САЛАТ / ДВОЙНОЙ ЧЕДДЕР / БЕКОНОВЫЙ ДЖЕМ / СОУС BBQ / КРАНЧ ЛУК /",
+      "shortcode": "Сплошной бекон и салат /",
+      "weight": "335г",
+      "toppings": ["Кетчуп", "Сыр Чеддер"]
+    },
+    {
+      "name": "Sass Burger",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744958/lampaburger/burgers/sass-burger_sdylo0.png",
+      "id": 6,
+      "price": 200,
+      "description": "УМЕРЕННО БЕКОНА / СОУС ЧЕДДЕР / САЛАТ / ДВОЙНОЙ ЧЕДДЕР / БЕКОНОВЫЙ ДЖЕМ / СОУС BBQ / КРАНЧ ЛУК /",
+      "shortcode": "Нежный вкус средней прожарки толстой котлеты /",
+      "weight": "335г",
+      "toppings": ["Сыр Чеддер", "Красный лук"]
+    }
+  ],
+  "other": [
+    {
+      "name": "Sugar For Your Code",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744976/lampaburger/other/sets5_liwgtc.png",
+      "id": 7,
+      "price": 50,
+      "choices": ["Coca-cola", "Fanta", "Mirinda", "Sprite"]
+    },
+    {
+      "name": "NPM Install Fries ",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744977/lampaburger/other/sets1_j2jhjj.png",
+      "id": 8,
+      "price": 70,
+      "choices": ["Перец", "Соль"]
+    },
+    {
+      "name": "Landing Set",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744977/lampaburger/other/sets2_qc6ib1.png",
+      "id": 9,
+      "price": 375,
+      "choices": ["Кетчуп", "Майонез"]
+    },
+    {
+      "name": "MultiPage Set",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744976/lampaburger/other/sets3_zpccq7.png",
+      "id": 10,
+      "price": 200,
+      "choices": ["Свинина", "Говядина"]
+    },
+    {
+      "name": "Webpack Set",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744976/lampaburger/other/sets6_inirww.png",
+      "id": 11,
+      "price": 250,
+      "choices": ["Майонез", "Барбекю"]
+    },
+    {
+      "name": "SinglePage Set",
+      "url": "https://res.cloudinary.com/maximusvin/image/upload/v1618744977/lampaburger/other/sets4_m6oqdo.png",
+      "id": 12,
+      "price": 375.25,
+      "choices": ["Свинина", "Говядина", "Баранина"]
+    }
+  ]
+}

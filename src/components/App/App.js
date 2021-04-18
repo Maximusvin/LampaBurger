@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import { NavBar, Menu, CardProduct, Order } from 'components';
 import ModalItem from '../../UI/ModalItem/';
-import { useOpenItem, useOrders, useAuth } from 'hooks';
+import { useOpenItem, useOrders, useAuth, useTitle } from 'hooks';
 // import { AuthPage, ContactsPage, UseFulPage } from 'views';
 
 const firebaseConfig = {
@@ -23,6 +23,7 @@ function App() {
   const { openItem, setOpenItem } = useOpenItem();
   const orders = useOrders();
   const auth = useAuth(firebase.auth);
+  useTitle(openItem);
 
   return (
     <>
