@@ -1,6 +1,7 @@
 // import { Route } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 import { NavBar, Menu, CardProduct, Order } from 'components';
 import ModalItem from '../../UI/ModalItem/';
 import { useOpenItem, useOrders, useAuth } from 'hooks';
@@ -26,7 +27,13 @@ function App() {
   return (
     <>
       <NavBar {...auth} />
-      <Order {...orders} openItem={openItem} setOpenItem={setOpenItem} />
+      <Order
+        {...orders}
+        {...auth}
+        firebaseDatabase={firebase.database}
+        openItem={openItem}
+        setOpenItem={setOpenItem}
+      />
       <Menu setOpenItem={setOpenItem} />
 
       {openItem && (
