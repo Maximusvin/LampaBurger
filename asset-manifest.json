@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/LampaBurger/static/css/main.f7242982.chunk.css",
-    "main.js": "/LampaBurger/static/js/main.b7f2374b.chunk.js",
-    "main.js.map": "/LampaBurger/static/js/main.b7f2374b.chunk.js.map",
+    "main.js": "/LampaBurger/static/js/main.a5f100f1.chunk.js",
+    "main.js.map": "/LampaBurger/static/js/main.a5f100f1.chunk.js.map",
     "runtime-main.js": "/LampaBurger/static/js/runtime-main.8c500f7b.js",
     "runtime-main.js.map": "/LampaBurger/static/js/runtime-main.8c500f7b.js.map",
-    "static/js/2.fc0d98a3.chunk.js": "/LampaBurger/static/js/2.fc0d98a3.chunk.js",
-    "static/js/2.fc0d98a3.chunk.js.map": "/LampaBurger/static/js/2.fc0d98a3.chunk.js.map",
+    "static/js/2.6ee3e8a4.chunk.js": "/LampaBurger/static/js/2.6ee3e8a4.chunk.js",
+    "static/js/2.6ee3e8a4.chunk.js.map": "/LampaBurger/static/js/2.6ee3e8a4.chunk.js.map",
     "index.html": "/LampaBurger/index.html",
     "static/css/main.f7242982.chunk.css.map": "/LampaBurger/static/css/main.f7242982.chunk.css.map",
-    "static/js/2.fc0d98a3.chunk.js.LICENSE.txt": "/LampaBurger/static/js/2.fc0d98a3.chunk.js.LICENSE.txt",
+    "static/js/2.6ee3e8a4.chunk.js.LICENSE.txt": "/LampaBurger/static/js/2.6ee3e8a4.chunk.js.LICENSE.txt",
     "static/media/burger.350271d5.svg": "/LampaBurger/static/media/burger.350271d5.svg",
     "static/media/hd-1.0228b37b.jpg": "/LampaBurger/static/media/hd-1.0228b37b.jpg",
     "static/media/index.css": "/LampaBurger/static/media/montserrat-v15-latin_cyrillic-regular.f263cfd0.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.8c500f7b.js",
-    "static/js/2.fc0d98a3.chunk.js",
+    "static/js/2.6ee3e8a4.chunk.js",
     "static/css/main.f7242982.chunk.css",
-    "static/js/main.b7f2374b.chunk.js"
+    "static/js/main.a5f100f1.chunk.js"
   ]
 }
