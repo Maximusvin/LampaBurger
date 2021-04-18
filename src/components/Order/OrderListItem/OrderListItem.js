@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { Context } from 'Functions';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
 import { totalPriceItem, formatCurrency } from 'Functions';
@@ -17,7 +19,9 @@ import {
   Button,
 } from './OrderListItem.style';
 
-const OrderListItem = ({ order, onDelete, setOpenItem, index }) => {
+const OrderListItem = ({ order, onDelete, index }) => {
+  const { setOpenItem } = useContext(Context);
+
   const { name, url, choice, topping, shortcode, weight, count } = order;
   const counter = useCount(count);
 

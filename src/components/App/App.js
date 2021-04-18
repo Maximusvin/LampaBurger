@@ -38,38 +38,30 @@ function App() {
   useTitle(openItem);
 
   return (
-    <Context.Provider value={{ auth, dbMenu, setOpenItem }}>
+    <Context.Provider
+      value={{
+        auth,
+        dbMenu,
+        openItem,
+        setOpenItem,
+        orders,
+        orderConfirm,
+        dataBase,
+      }}
+    >
       <NavBar />
-      <Order
-        {...orders}
-        {...auth}
-        {...orderConfirm}
-        openItem={openItem}
-        setOpenItem={setOpenItem}
-      />
+      <Order />
       <Menu />
 
       {openItem && (
-        <ModalItem openItem={openItem} onCloseModal={setOpenItem}>
-          <CardProduct
-            openItem={openItem}
-            setOpenItem={setOpenItem}
-            {...orders}
-          />
+        <ModalItem onCloseModal={setOpenItem}>
+          <CardProduct />
         </ModalItem>
       )}
 
       {orderConfirm.openOrderConfirm && (
-        <ModalItem
-          openItem={orderConfirm.orderConfirm}
-          onCloseModal={orderConfirm.setOpenOrderConfirm}
-        >
-          <OrderConfirm
-            {...orders}
-            {...auth}
-            {...orderConfirm}
-            dataBase={dataBase}
-          />
+        <ModalItem onCloseModal={orderConfirm.setOpenOrderConfirm}>
+          <OrderConfirm />
         </ModalItem>
       )}
     </Context.Provider>

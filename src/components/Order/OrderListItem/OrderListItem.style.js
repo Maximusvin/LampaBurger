@@ -4,7 +4,7 @@ export const OrderItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24px;
+  margin-bottom: 24px;
   width: 100%;
   transition: transform 0.2s cubic-bezier(0.4, 0.01, 0.63, 1);
   font-size: 16px;

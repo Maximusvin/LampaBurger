@@ -4,7 +4,7 @@ import { Layout, ListItem, Offer } from 'components';
 import { MenuWrap, Title, Section } from './Menu.style';
 
 const Menu = () => {
-  const { dbMenu, setOpenItem } = useContext(Context);
+  const { dbMenu } = useContext(Context);
 
   return (
     <MenuWrap>
@@ -14,11 +14,11 @@ const Menu = () => {
           <>
             <Section id="menu">
               <Title>Бургеры</Title>
-              <ListItem itemList={dbMenu.burger} setOpenItem={setOpenItem} />
+              <ListItem itemList={dbMenu.burger} />
             </Section>
             <Section>
               <Title>Напитки / Сетты</Title>
-              <ListItem itemList={dbMenu.other} setOpenItem={setOpenItem} />
+              <ListItem itemList={dbMenu.other} />
             </Section>
           </>
         ) : (

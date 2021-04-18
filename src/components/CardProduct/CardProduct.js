@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { Context } from 'Functions';
 import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
 import Toppings from './Toppings/Toppings';
@@ -22,7 +24,13 @@ import {
   ButtonClose,
 } from './CardProduct.style';
 
-const CardProduct = ({ openItem, setOpenItem, orders, setOrders }) => {
+const CardProduct = () => {
+  const {
+    openItem,
+    setOpenItem,
+    orders: { orders, setOrders },
+  } = useContext(Context);
+
   const { name, url, weight, description } = openItem;
   const counter = useCount(openItem.count);
   const toppings = useToppings(openItem);
