@@ -32,12 +32,10 @@ const Order = ({
   setOpenItem,
   authentication,
   logIn,
-  firebaseDatabase,
+  dataBase,
 }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);
-
-  const dataBase = firebaseDatabase();
 
   const sendOrder = () => {
     const newOrder = orders.map(projection(rulesData));

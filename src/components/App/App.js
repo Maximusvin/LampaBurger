@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import { NavBar, Menu, CardProduct, Order } from 'components';
 import ModalItem from '../../UI/ModalItem/';
-import { useOpenItem, useOrders, useAuth, useTitle } from 'hooks';
+import { useOpenItem, useOrders, useAuth, useTitle, useDatabase } from 'hooks';
 // import { AuthPage, ContactsPage, UseFulPage } from 'views';
 
 const firebaseConfig = {
@@ -23,6 +23,8 @@ function App() {
   const { openItem, setOpenItem } = useOpenItem();
   const orders = useOrders();
   const auth = useAuth(firebase.auth);
+  const dataBase = firebase.database();
+  const dbMenu = useDatabase(dataBase);
   useTitle(openItem);
 
   return (
@@ -31,11 +33,11 @@ function App() {
       <Order
         {...orders}
         {...auth}
-        firebaseDatabase={firebase.database}
+        dataBase={dataBase}
         openItem={openItem}
         setOpenItem={setOpenItem}
       />
-      <Menu setOpenItem={setOpenItem} />
+      <Menu setOpenItem={setOpenItem} dbMenu={dbMenu} />
 
       {openItem && (
         <ModalItem openItem={openItem} onCloseModal={setOpenItem}>

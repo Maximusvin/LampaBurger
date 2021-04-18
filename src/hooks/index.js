@@ -5,4 +5,4 @@ export { useToppings } from './useToppings';
 export { useChoices } from './useChoices';
 export { useAuth } from './useAuth';
 export { useTitle } from './useTitle';
-export { useFetch } from './useFetch';
+export { useDatabase } from './useDatabase';
