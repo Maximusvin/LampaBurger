@@ -1,5 +1,5 @@
 import { Layout } from 'components';
-import { totalPriceItem, formatCurrency, projection } from 'Functions';
+import { totalPriceItem, formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 
 import {
@@ -14,38 +14,16 @@ import {
   EmptyList,
 } from './Order.style';
 
-const rulesData = {
-  name: ['name'],
-  price: ['price'],
-  count: ['count'],
-  topping: [
-    'topping',
-    arr => arr.filter(obj => obj.checked).map(obj => obj.name),
-    arr => (arr.length ? arr : 'no topping'),
-  ],
-  choice: ['choice', item => (item ? item : 'No choices')],
-};
-
 const Order = ({
   orders,
   setOrders,
   setOpenItem,
   authentication,
   logIn,
-  dataBase,
+  setOpenOrderConfirm,
 }) => {
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);
-
-  const sendOrder = () => {
-    const newOrder = orders.map(projection(rulesData));
-    dataBase.ref('orders').push().set({
-      nameClient: authentication.displayName,
-      email: authentication.email,
-      order: newOrder,
-    });
-    setOrders([]);
-  };
 
   const deleteItem = idx =>
     setOrders(orders.filter((item, index) => index !== idx));
@@ -82,7 +60,7 @@ const Order = ({
         <Button
           onClick={() => {
             if (authentication) {
-              sendOrder();
+              setOpenOrderConfirm(true);
             } else {
               logIn();
             }

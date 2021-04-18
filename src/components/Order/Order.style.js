@@ -54,7 +54,11 @@ export const Input = styled.input`
   width: 100%;
 `;
 
-export const Total = styled.div`
+export const Text = styled.p`
+  margin-bottom: 20px;
+`;
+
+export const Total = styled.p`
   margin-bottom: 20px;
 `;
 

@@ -1,5 +1,7 @@
-import { ColorStyle } from 'components';
+import { useContext } from 'react';
 import { ShoppingBasket, AccountCircle, ExitToApp } from '@material-ui/icons';
+import { ColorStyle } from 'components';
+import { Context } from 'Functions';
 
 import {
   Header,
@@ -17,7 +19,11 @@ import {
 import logo from '../../assets/images/burger.svg';
 import { yellow } from '../../assets/colors';
 
-const NavBar = ({ authentication, logIn, logOut }) => {
+const NavBar = () => {
+  const {
+    auth: { authentication, logIn, logOut },
+  } = useContext(Context);
+
   return (
     <Header>
       <Logo href="#">

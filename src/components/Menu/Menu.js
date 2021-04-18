@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { Context } from 'Functions';
 import { Layout, ListItem, Offer } from 'components';
 import { MenuWrap, Title, Section } from './Menu.style';
 
-const Menu = ({ setOpenItem, dbMenu }) => {
+const Menu = () => {
+  const { dbMenu, setOpenItem } = useContext(Context);
+
   return (
     <MenuWrap>
       <Offer />

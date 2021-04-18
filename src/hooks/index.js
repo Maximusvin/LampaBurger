@@ -6,3 +6,4 @@ export { useChoices } from './useChoices';
 export { useAuth } from './useAuth';
 export { useTitle } from './useTitle';
 export { useDatabase } from './useDatabase';
+export { useOrderConfirm } from './useOrderConfirm';

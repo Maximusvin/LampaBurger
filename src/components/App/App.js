@@ -4,7 +4,16 @@ import 'firebase/auth';
 import 'firebase/database';
 import { NavBar, Menu, CardProduct, Order } from 'components';
 import ModalItem from '../../UI/ModalItem/';
-import { useOpenItem, useOrders, useAuth, useTitle, useDatabase } from 'hooks';
+import { Context } from 'Functions';
+import {
+  useOpenItem,
+  useOrders,
+  useAuth,
+  useTitle,
+  useDatabase,
+  useOrderConfirm,
+} from 'hooks';
+import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
 // import { AuthPage, ContactsPage, UseFulPage } from 'views';
 
 const firebaseConfig = {
@@ -25,19 +34,20 @@ function App() {
   const auth = useAuth(firebase.auth);
   const dataBase = firebase.database();
   const dbMenu = useDatabase(dataBase);
+  const orderConfirm = useOrderConfirm();
   useTitle(openItem);
 
   return (
-    <>
-      <NavBar {...auth} />
+    <Context.Provider value={{ auth, dbMenu, setOpenItem }}>
+      <NavBar />
       <Order
         {...orders}
         {...auth}
-        dataBase={dataBase}
+        {...orderConfirm}
         openItem={openItem}
         setOpenItem={setOpenItem}
       />
-      <Menu setOpenItem={setOpenItem} dbMenu={dbMenu} />
+      <Menu />
 
       {openItem && (
         <ModalItem openItem={openItem} onCloseModal={setOpenItem}>
@@ -48,7 +58,21 @@ function App() {
           />
         </ModalItem>
       )}
-    </>
+
+      {orderConfirm.openOrderConfirm && (
+        <ModalItem
+          openItem={orderConfirm.orderConfirm}
+          onCloseModal={orderConfirm.setOpenOrderConfirm}
+        >
+          <OrderConfirm
+            {...orders}
+            {...auth}
+            {...orderConfirm}
+            dataBase={dataBase}
+          />
+        </ModalItem>
+      )}
+    </Context.Provider>
   );
 }
 

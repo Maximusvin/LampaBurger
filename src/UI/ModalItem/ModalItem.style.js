@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { yellow, black } from '../../assets/colors';
 
 export const Overlay = styled.div`
   position: fixed;
