@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Context } from 'Functions';
 import { totalPriceItem, formatCurrency, projection } from 'Functions';
-import { Overlay } from 'UI/ModalItem/ModalItem.style';
 import { ConfirmWrap, Title } from './OrderConfirm.style';
 import { Total, Text, Button } from 'components/Order/Order.style';
 

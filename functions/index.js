@@ -29,13 +29,14 @@ const sendOrderEmail = data => {
             ({ name, count, price }) =>
               `<li>${name} - ${count}шт., цена ${price * count} грн.</li>`,
           )
-          .join(', ')}
+          .join(' ')}
       </ul>
       <p>Итого: ${data.order.reduce(
         (sum, item) => sum + (item.price + item.count),
         0,
       )} грн.</p>
-        <p>Ожидайте курьера.</p>
+        <p>Ожидайте курьера.</p> 
+        <p>С уважением, <a href="https://lampaburger.web.app/">LampaBurger</a></p> 
     </div>
       `,
   };
