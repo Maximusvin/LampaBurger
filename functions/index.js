@@ -16,9 +16,9 @@ transporter.use('compile', htmlToText());
 
 const sendOrderEmail = data => {
   const options = {
-    from: `BetweenTheBuns ${email}`,
+    from: `LampaBurger ${email}`,
     to: data.email,
-    subject: 'Ваши заказ из LampaBurger',
+    subject: 'Ваш заказ из LampaBurger',
     html: `
     <div>
       <h2>Здравствуйте, ${data.nameClient}</h2>
