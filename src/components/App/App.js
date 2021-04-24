@@ -3,6 +3,9 @@ import { NavBar, CardProduct } from 'components';
 import { Home, Cart } from 'views';
 import ModalItem from '../../UI/ModalItem/';
 import { Context } from 'Functions';
+import { useDispatch } from 'react-redux';
+import { setMenuData } from 'redux/menuDB/menuDBActions';
+
 import {
   useOpenItem,
   useOrders,
@@ -17,17 +20,18 @@ import { authBase, dataBase } from 'services/firebase';
 
 function App() {
   const auth = useAuth(authBase);
-  const dbMenu = useDatabase(dataBase);
   const { openItem, setOpenItem } = useOpenItem();
   const orders = useOrders();
   const orderConfirm = useOrderConfirm();
   useTitle(openItem);
 
+  const dispatch = useDispatch();
+  dispatch(setMenuData(useDatabase(dataBase)));
+
   return (
     <Context.Provider
       value={{
         auth,
-        dbMenu,
         openItem,
         setOpenItem,
         orders,

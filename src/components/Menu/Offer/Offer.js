@@ -15,7 +15,7 @@ const Offer = () => (
           29 минут или самый яркий{' '}
           <ColorStyle color={yellow}>БУРГЕР</ColorStyle> в подарок!
         </SubTitle>
-        <Button href="#menu">Меню</Button>
+        <Button href="#burgers">Меню</Button>
       </Description>
     </Layout>
   </OfferWrap>

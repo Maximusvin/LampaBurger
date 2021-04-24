@@ -4,6 +4,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import ordersReducer from './orders/ordersReducer';
+import sortReducer from './sort/sortReducer';
+import menuReducer from './menuDB/menuDBReducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -20,6 +22,8 @@ const basketPersistConfig = {
 export const store = configureStore({
   reducer: {
     orders: ordersReducer,
+    sort: sortReducer,
+    menuDB: menuReducer,
 
     // basket: persistReducer(basketPersistConfig, basketReducer),
   },

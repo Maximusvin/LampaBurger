@@ -2,8 +2,6 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-// import { onLogInState, onLogOutState } from './registration';
-
 const firebaseConfig = {
   apiKey: 'AIzaSyAqe_cY_1FKYax-5rTXC1leYLzR8m2OqWE',
   authDomain: 'lampaburger.firebaseapp.com',

@@ -12,13 +12,19 @@ import {
   PopapActiveItem,
 } from './MenuPopap.style';
 
-const sortList = ['популярности', 'цене', 'алфавиту'];
+const sortList = [
+  { name: 'популярности', type: 'popular' },
+  { name: 'цене', type: 'price' },
+  { name: 'алфавиту', type: 'alphabet' },
+];
+
+// const sortList = ['sdasda', 'asdafa', 'eqwe'];
 
 const MenuPopap = () => {
   const [showPopap, setShowPopap] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const popapRef = useRef();
-  const activeLabelName = sortList[activeItem];
+  const activeLabelName = sortList[activeItem].name;
 
   const handleOutsideClick = e => {
     if (!e.path.includes(popapRef.current)) {
@@ -60,11 +66,11 @@ const MenuPopap = () => {
           <PopapList>
             {sortList.map((item, index) => (
               <PopapItem
-                key={item + index}
+                key={item.type + index}
                 onClick={() => getActiveItem(index)}
                 active={activeItem === index ? true : ''}
               >
-                {item}
+                {item.name}
               </PopapItem>
             ))}
           </PopapList>

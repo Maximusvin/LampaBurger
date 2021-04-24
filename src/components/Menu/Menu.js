@@ -1,11 +1,10 @@
-import { useContext } from 'react';
-import { Context } from 'Functions';
 import { Layout, ListItem, Offer, MenuPopap } from 'components';
+import { useSelector } from 'react-redux';
 
 import { MenuWrap, Title, Section, TitleWrap } from './Menu.style';
 
 const Menu = () => {
-  const { dbMenu } = useContext(Context);
+  const dbMenu = useSelector(state => state.menuDB.menuData);
 
   return (
     <MenuWrap id="menuWrap">
