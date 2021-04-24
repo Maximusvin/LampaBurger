@@ -1,6 +1,6 @@
-// import { Route } from 'react-router-dom';
 import { Switch, Route } from 'react-router';
-import { NavBar, Menu, CardProduct, Order } from 'components';
+import { NavBar, CardProduct } from 'components';
+import { Home, Cart } from 'views';
 import ModalItem from '../../UI/ModalItem/';
 import { Context } from 'Functions';
 import {
@@ -13,8 +13,6 @@ import {
 } from 'hooks';
 import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
 
-// import { AuthPage, ContactsPage, UseFulPage } from 'views';
-
 import { authBase, dataBase } from 'services/firebase';
 
 function App() {
@@ -24,8 +22,6 @@ function App() {
   const orders = useOrders();
   const orderConfirm = useOrderConfirm();
   useTitle(openItem);
-
-  console.log(orders);
 
   return (
     <Context.Provider
@@ -42,8 +38,8 @@ function App() {
       <NavBar />
 
       <Switch>
-        <Route path="/" exact component={Menu} />
-        <Route path="/cart" component={Order} />
+        <Route path="/" exact component={Home} />
+        <Route path="/cart" component={Cart} />
       </Switch>
 
       {openItem && (
