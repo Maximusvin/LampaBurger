@@ -1,7 +1,5 @@
 // import { Route } from 'react-router-dom';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import { Switch, Route } from 'react-router';
 import { NavBar, Menu, CardProduct, Order } from 'components';
 import ModalItem from '../../UI/ModalItem/';
 import { Context } from 'Functions';
@@ -14,28 +12,20 @@ import {
   useOrderConfirm,
 } from 'hooks';
 import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
+
 // import { AuthPage, ContactsPage, UseFulPage } from 'views';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyAqe_cY_1FKYax-5rTXC1leYLzR8m2OqWE',
-  authDomain: 'lampaburger.firebaseapp.com',
-  databaseURL: 'https://lampaburger-default-rtdb.firebaseio.com',
-  projectId: 'lampaburger',
-  storageBucket: 'lampaburger.appspot.com',
-  messagingSenderId: '375009946141',
-  appId: '1:375009946141:web:bbf2ad5cc2b39e201134f4',
-};
-
-firebase.initializeApp(firebaseConfig);
+import { authBase, dataBase } from 'services/firebase';
 
 function App() {
+  const auth = useAuth(authBase);
+  const dbMenu = useDatabase(dataBase);
   const { openItem, setOpenItem } = useOpenItem();
   const orders = useOrders();
-  const auth = useAuth(firebase.auth);
-  const dataBase = firebase.database();
-  const dbMenu = useDatabase(dataBase);
   const orderConfirm = useOrderConfirm();
   useTitle(openItem);
+
+  console.log(orders);
 
   return (
     <Context.Provider
@@ -50,8 +40,11 @@ function App() {
       }}
     >
       <NavBar />
-      <Order />
-      <Menu />
+
+      <Switch>
+        <Route path="/" exact component={Menu} />
+        <Route path="/cart" component={Order} />
+      </Switch>
 
       {openItem && (
         <ModalItem onCloseModal={setOpenItem}>

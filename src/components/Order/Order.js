@@ -4,6 +4,8 @@ import { Layout } from 'components';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 
+import { useForm } from 'hooks';
+
 import {
   OrderWrap,
   Title,
@@ -24,22 +26,42 @@ const Order = () => {
     orderConfirm: { setOpenOrderConfirm },
   } = useContext(Context);
 
-  const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
-  const totalCounter = orders.reduce((total, item) => total + item.count, 0);
+  const newOrders = [...orders];
+
+  const total = newOrders.reduce(
+    (total, item) => totalPriceItem(item) + total,
+    0,
+  );
+  const totalCounter = newOrders.reduce((total, item) => total + item.count, 0);
 
   const deleteItem = idx =>
-    setOrders(orders.filter((item, index) => index !== idx));
+    setOrders(newOrders.filter((_, index) => index !== idx));
+
+  const { name, surname, address, phone, handleInputChange } = useForm();
+
+  const formData = { name, surname, address, phone };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if (authentication) {
+      setOpenOrderConfirm(true);
+      console.log(formData);
+    } else {
+      logIn();
+    }
+  };
 
   return (
     <Layout>
       <OrderWrap>
         <Title>Ваш заказ</Title>
 
-        {orders.length > 0 ? (
+        {newOrders.length > 0 ? (
           <OrderContent>
             <OrderListWrap>
               <OrderList>
-                {orders.map((order, index) => (
+                {newOrders.map((order, index) => (
                   <OrderListItem
                     key={order.id + order.name}
                     order={order}
@@ -51,11 +73,39 @@ const Order = () => {
               <Total>Всего товаров в корзине: {totalCounter}</Total>
               <Total>Сумма заказа: {formatCurrency(total)}</Total>
             </OrderListWrap>
-            <Form>
-              <Input type="text" name="" />
-              <Input type="text" name="" />
-              <Input type="text" name="" />
+
+            <Form onSubmit={onSubmit}>
+              <Input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={name}
+                onChange={handleInputChange}
+              />
+              <Input
+                type="text"
+                name="surname"
+                placeholder="Surname"
+                value={surname}
+                onChange={handleInputChange}
+              />
+              <Input
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={address}
+                onChange={handleInputChange}
+              />
+              <Input
+                type="tel"
+                name="phone"
+                placeholder="Phone"
+                value={phone}
+                onChange={handleInputChange}
+              />
+              <button type="submit">Click submit</button>
             </Form>
+
             <Button
               onClick={() => {
                 if (authentication) {

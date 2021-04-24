@@ -1,23 +1,30 @@
 import { useContext } from 'react';
 import { Context } from 'Functions';
-import { Layout, ListItem, Offer } from 'components';
-import { MenuWrap, Title, Section } from './Menu.style';
+import { Layout, ListItem, Offer, MenuPopap } from 'components';
+
+import { MenuWrap, Title, Section, TitleWrap } from './Menu.style';
 
 const Menu = () => {
   const { dbMenu } = useContext(Context);
 
   return (
-    <MenuWrap>
+    <MenuWrap id="menuWrap">
       <Offer />
       <Layout>
         {dbMenu ? (
           <>
-            <Section id="menu">
-              <Title>Бургеры</Title>
+            <Section id="burgers">
+              <TitleWrap>
+                <Title>Бургеры</Title>
+                <MenuPopap />
+              </TitleWrap>
               <ListItem itemList={dbMenu.burger} />
             </Section>
-            <Section>
-              <Title>Напитки / Сетты</Title>
+            <Section id="sets">
+              <TitleWrap>
+                <Title>Напитки / Сетты</Title>
+                <MenuPopap />
+              </TitleWrap>
               <ListItem itemList={dbMenu.other} />
             </Section>
           </>

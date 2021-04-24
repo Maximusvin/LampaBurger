@@ -1,6 +1,7 @@
 export { default as App } from './App';
 export { NavBar } from './NavBar';
 export { Menu } from './Menu';
+export { MenuPopap } from './Menu/MenuPopap';
 export { ListItem } from './Menu/ListItem';
 export { Offer } from './Menu/Offer';
 export { CardProduct } from './CardProduct';

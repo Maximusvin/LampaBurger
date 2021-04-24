@@ -5,8 +5,14 @@ import CountItem from './CountItem/CountItem';
 import Toppings from './Toppings/Toppings';
 import Choices from './Choices/Choices';
 
+// ==================
+import { useSelector, useDispatch } from 'react-redux';
+import { addToOrder } from '../../redux/orders/ordersActions';
+
+// ==================
+
 import { ColorStyle } from 'components';
-import { useCount, useToppings, useChoices } from 'hooks';
+import { useCount, useToppings } from 'hooks';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from '../../assets/colors/index';
 
@@ -31,21 +37,28 @@ const CardProduct = () => {
     orders: { orders, setOrders },
   } = useContext(Context);
 
+  // ====================
+  const choice = useSelector(store => store.orders.choice);
+  const dispatch = useDispatch();
+  // const topping = useSelector(store => store.orders.topping);
+  // ====================
+
   const { name, url, weight, description } = openItem;
   const counter = useCount(openItem.count);
   const toppings = useToppings(openItem);
-  const choices = useChoices(openItem);
   const isEdit = openItem.index > -1;
 
   const order = {
     ...openItem,
     count: counter.count,
     topping: toppings.toppings,
-    choice: choices.choice,
+    choice,
   };
 
   const onAddToOrder = () => {
     setOrders([...orders, order]);
+    dispatch(addToOrder([...orders, order]));
+
     setOpenItem(null);
   };
 
@@ -68,7 +81,8 @@ const CardProduct = () => {
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
           {openItem.toppings && <Toppings {...toppings} />}
-          {openItem.choices && <Choices {...choices} openItem={openItem} />}
+          {/* {openItem.choices && <Choices {...choices} openItem={openItem} />} */}
+          {openItem.choices && <Choices openItem={openItem} />}
         </div>
 
         <Control>

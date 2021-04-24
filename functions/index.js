@@ -27,12 +27,12 @@ const sendOrderEmail = data => {
         ${data.order
           .map(
             ({ name, count, price }) =>
-              `<li>${name} - ${count}шт., цена ${price * count} грн.</li>`,
+              `<li>${name} - ${count}шт., стоимость ${price * count} грн.</li>`,
           )
           .join(' ')}
       </ul>
       <p>Итого: ${data.order.reduce(
-        (sum, item) => sum + (item.price + item.count),
+        (sum, item) => sum + item.price * item.count,
         0,
       )} грн.</p>
         <p>Ожидайте курьера.</p> 

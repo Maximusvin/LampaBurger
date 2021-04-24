@@ -7,13 +7,22 @@ export const MenuWrap = styled.main`
   background-color: ${black};
 `;
 
-export const Title = styled.h2`
-  font-size: 55px;
+export const TitleWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 50px;
 
   @media (max-width: 576px) {
-    font-size: 30px;
     margin-bottom: 20px;
+  }
+`;
+
+export const Title = styled.h2`
+  font-size: 55px;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
   }
 `;
 

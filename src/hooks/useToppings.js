@@ -12,6 +12,7 @@ export const useToppings = openItem => {
     : openItem.toppings
     ? getTopping(openItem.toppings)
     : [];
+
   const [toppings, setToppings] = useState(readyTopping);
 
   const checkToppings = idx =>

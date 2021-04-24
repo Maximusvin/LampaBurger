@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { white, yellow } from '../../assets/colors';
+import { white } from '../../assets/colors';
+import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   position: fixed;
@@ -10,7 +11,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 100px;
+  padding: 15px 100px;
   background-color: #0f0f0f;
   color: ${white};
   transition: all 0.3s linear;
@@ -20,7 +21,7 @@ export const Header = styled.header`
   }
 `;
 
-export const Logo = styled.a`
+export const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
   color: ${white};
@@ -43,31 +44,37 @@ export const ControlsWrap = styled.div`
 `;
 
 export const ButtonAuth = styled.button`
-  color: ${white};
+  color: #ffd900;
   background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s linear;
+  background-color: #2f2f2f;
+  padding: 5px 20px;
+  border-radius: 25px;
 
   :hover {
-    color: ${yellow};
+    background-color: #454545;
   }
 `;
 
-export const ButtonCart = styled.button`
-  color: ${white};
+export const ButtonCart = styled(NavLink)`
+  color: #ffd900;
   background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s linear;
-  margin-right: 20px;
+  margin-right: 15px;
+  background-color: #2f2f2f;
+  padding: 5px 20px;
+  border-radius: 25px;
 
   :hover {
-    color: ${yellow};
+    background-color: #454545;
   }
 `;
 
