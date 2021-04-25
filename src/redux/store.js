@@ -1,4 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -11,6 +12,7 @@ const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: false,
   }),
+  thunk,
   logger,
 ];
 

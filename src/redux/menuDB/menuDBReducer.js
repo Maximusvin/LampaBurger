@@ -1,15 +1,10 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import { setMenuData, isLoaded } from './menuDBActions';
+import { setMenuData } from './menuDBActions';
 
-const menuData = createReducer([], {
+const menuData = createReducer(null, {
   [setMenuData]: (state, { payload }) => payload,
-});
-
-const isLoading = createReducer(false, {
-  [isLoaded]: (state, { payload }) => (state = payload),
 });
 
 export default combineReducers({
   menuData,
-  isLoading,
 });

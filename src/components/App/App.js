@@ -1,22 +1,22 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchMenuData } from 'redux/menuDB/menuDBActions';
 import { Switch, Route } from 'react-router';
 import { NavBar, CardProduct } from 'components';
 import { Home, Cart } from 'views';
-import ModalItem from '../../UI/ModalItem/';
+import ModalItem from 'UI/ModalItem/';
 import { Context } from 'Functions';
-import { useDispatch } from 'react-redux';
-import { setMenuData } from 'redux/menuDB/menuDBActions';
+
+import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
+import { authBase } from 'services/firebase';
 
 import {
   useOpenItem,
   useOrders,
   useAuth,
   useTitle,
-  useDatabase,
   useOrderConfirm,
 } from 'hooks';
-import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
-
-import { authBase, dataBase } from 'services/firebase';
 
 function App() {
   const auth = useAuth(authBase);
@@ -26,7 +26,10 @@ function App() {
   useTitle(openItem);
 
   const dispatch = useDispatch();
-  dispatch(setMenuData(useDatabase(dataBase)));
+
+  useEffect(() => {
+    dispatch(fetchMenuData());
+  }, [dispatch]);
 
   return (
     <Context.Provider
@@ -36,7 +39,6 @@ function App() {
         setOpenItem,
         orders,
         orderConfirm,
-        dataBase,
       }}
     >
       <NavBar />

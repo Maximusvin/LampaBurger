@@ -159,4 +159,5 @@ input[type='number']::-webkit-outer-spin-button {
   bottom: -20px;
   background-color: #1d1d1d;
   transform: rotate(90deg);
+  color: #ffd900;
 }

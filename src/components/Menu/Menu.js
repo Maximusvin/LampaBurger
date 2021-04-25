@@ -1,35 +1,36 @@
 import { Layout, ListItem, Offer, MenuPopap } from 'components';
-import { useSelector } from 'react-redux';
-
 import { MenuWrap, Title, Section, TitleWrap } from './Menu.style';
 
-const Menu = () => {
-  const dbMenu = useSelector(state => state.menuDB.menuData);
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 
+const Menu = ({ dbMenu }) => {
   return (
     <MenuWrap id="menuWrap">
       <Offer />
       <Layout>
-        {dbMenu ? (
-          <>
-            <Section id="burgers">
-              <TitleWrap>
-                <Title>Бургеры</Title>
-                <MenuPopap />
-              </TitleWrap>
-              <ListItem itemList={dbMenu.burger} />
-            </Section>
-            <Section id="sets">
-              <TitleWrap>
-                <Title>Напитки / Сетты</Title>
-                <MenuPopap />
-              </TitleWrap>
-              <ListItem itemList={dbMenu.other} />
-            </Section>
-          </>
-        ) : (
-          <div>Loading...</div>
-        )}
+        <Section id="burgers">
+          <TitleWrap>
+            <Title>Бургеры</Title>
+            <MenuPopap />
+          </TitleWrap>
+          {dbMenu ? (
+            <ListItem itemList={dbMenu.burger} />
+          ) : (
+            <Loader type="ThreeDots" color="#ffd900" height={100} width={100} />
+          )}
+        </Section>
+        <Section id="sets">
+          <TitleWrap>
+            <Title>Напитки / Сетты</Title>
+            <MenuPopap />
+          </TitleWrap>
+          {dbMenu ? (
+            <ListItem itemList={dbMenu.other} />
+          ) : (
+            <Loader type="ThreeDots" color="#ffd900" height={100} width={100} />
+          )}
+        </Section>
       </Layout>
     </MenuWrap>
   );
