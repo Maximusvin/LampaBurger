@@ -58,10 +58,10 @@ const OrderListItem = ({ order, onDelete, index }) => {
 
           <div>
             <Button onClick={() => setOpenItem({ ...order, index })}>
-              <CreateIcon style={{ color: '#f7cc10' }} />
+              <CreateIcon />
             </Button>
             <Button onClick={() => onDelete(index)}>
-              <CloseIcon style={{ color: '#f7cc10' }} />
+              <CloseIcon />
             </Button>
           </div>
         </BottomLine>

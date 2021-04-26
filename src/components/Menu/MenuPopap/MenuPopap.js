@@ -24,7 +24,11 @@ const MenuPopap = ({ activeItem, getActiveType }) => {
   const activeLabelName = sortList.find(item => item.type === activeItem).name;
 
   const handleOutsideClick = e => {
-    if (!e.path.includes(popapRef.current)) {
+    const path =
+      e.path ||
+      (e.composedPath && e.composedPath()) ||
+      e.composedPath(e.target);
+    if (!path.includes(popapRef.current)) {
       setShowPopap(false);
     }
   };

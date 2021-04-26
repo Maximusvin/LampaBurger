@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { ShoppingBasket, AccountCircle, ExitToApp } from '@material-ui/icons';
 import { ColorStyle } from 'components';
-import Nav from './NavigationMenu/NavigationMenu';
 import { Context } from 'Functions';
 
 import {
@@ -34,7 +33,6 @@ const NavBar = () => {
           <ColorStyle color={yellow}>Burger</ColorStyle>
         </Title>
       </Logo>
-      <Nav />
       <ControlsWrap>
         <ButtonCart to="/cart">
           <ShoppingBasket />

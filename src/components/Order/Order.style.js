@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { white } from '../../assets/colors';
+import { Link } from 'react-router-dom';
 
 export const OrderWrap = styled.section`
   padding-top: 80px;
@@ -7,14 +8,36 @@ export const OrderWrap = styled.section`
   color: ${white};
 `;
 
-export const Title = styled.h2`
-  font-size: 55px;
+export const HeaderWrap = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: 50px;
+
+  @media (max-width: 576px) {
+    margin-bottom: 20px;
+  }
+`;
+
+export const ClearOrderWrap = styled.button`
+  display: flex;
+  align-items: center;
+  color: #888;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s linear;
+
+  :hover {
+    color: #f7cc10;
+  }
+`;
+
+export const Title = styled.h2`
+  font-size: 45px;
   text-align: center;
 
   @media (max-width: 576px) {
     font-size: 30px;
-    margin-bottom: 20px;
   }
 `;
 
@@ -22,6 +45,9 @@ export const OrderContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (max-width: 576px) {
     flex-direction: column;
@@ -45,17 +71,6 @@ export const OrderList = styled.ul`
     padding: 20px;
     margin-bottom: 30px;
   }
-`;
-
-export const Form = styled.form`
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Input = styled.input`
-  margin-bottom: 5px;
-  width: 100%;
 `;
 
 export const Text = styled.p`
@@ -89,4 +104,29 @@ export const Button = styled.button`
   }
 `;
 
-export const EmptyList = styled.div``;
+export const EmptyList = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const ImgInEmptyCart = styled.img`
+  margin-bottom: 35px;
+`;
+
+export const TextInEmptyCart = styled.p`
+  font-size: 16px;
+  line-height: 20px;
+  color: #888;
+  transition: all 0.2s linear;
+  padding: 15px 25px;
+  border-radius: 25px;
+
+  :hover {
+    color: #f7cc10;
+    background-color: #2f2f2f;
+  }
+`;
+
+export const LinkToHome = styled(Link)``;

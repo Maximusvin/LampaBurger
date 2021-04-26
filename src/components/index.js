@@ -6,6 +6,7 @@ export { ListItem } from './Menu/ListItem';
 export { Offer } from './Menu/Offer';
 export { CardProduct } from './CardProduct';
 export { Order } from './Order';
+export { NavigationMenu } from './NavigationMenu';
 
 export { Layout } from '../UI/Layout';
 export { ColorStyle } from '../UI/ColorStyle';

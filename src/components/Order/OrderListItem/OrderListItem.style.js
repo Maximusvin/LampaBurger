@@ -75,6 +75,12 @@ export const BottomLine = styled.div`
 export const Button = styled.button`
   background: transparent;
   cursor: pointer;
+  color: #888;
+  transition: color 0.2s linear;
+
+  :hover {
+    color: #f7cc10;
+  }
 
   :not(:last-child) {
     margin-right: 10px;

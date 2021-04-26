@@ -56,7 +56,7 @@ const CardProduct = () => {
   };
 
   const onAddToOrder = () => {
-    setOrders([...orders, order]);
+    // setOrders([...orders, order]);
     dispatch(addToOrder([...orders, order]));
 
     setOpenItem(null);

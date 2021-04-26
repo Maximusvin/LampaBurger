@@ -1,5 +1,5 @@
-import { Layout, ColorStyle } from 'components';
-import { OfferWrap, Description, Title, SubTitle, Button } from './Offer.style';
+import { Layout, ColorStyle, NavigationMenu } from 'components';
+import { OfferWrap, Description, Title, SubTitle } from './Offer.style';
 import { yellow } from '../../../assets/colors/index';
 
 const Offer = () => (
@@ -15,7 +15,7 @@ const Offer = () => (
           29 минут или самый яркий{' '}
           <ColorStyle color={yellow}>БУРГЕР</ColorStyle> в подарок!
         </SubTitle>
-        <Button href="#burgers">Меню</Button>
+        <NavigationMenu />
       </Description>
     </Layout>
   </OfferWrap>

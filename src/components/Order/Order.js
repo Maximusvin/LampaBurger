@@ -1,29 +1,28 @@
 import { useContext } from 'react';
 import { Context } from 'Functions';
 import { Layout } from 'components';
+import OrderForm from './OrderForm/OrderForm';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
-
-import { useForm } from 'hooks';
+import EmptyCart from './EmptyCart';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import {
   OrderWrap,
   Title,
   OrderContent,
   OrderList,
-  Form,
-  Input,
   Total,
-  Button,
-  EmptyList,
   OrderListWrap,
+  HeaderWrap,
+  ClearOrderWrap,
 } from './Order.style';
 
 const Order = () => {
   const {
-    auth: { authentication, logIn },
+    auth,
     orders: { orders, setOrders },
-    orderConfirm: { setOpenOrderConfirm },
+    // orderConfirm: { setOpenOrderConfirm },
   } = useContext(Context);
 
   const newOrders = [...orders];
@@ -37,26 +36,16 @@ const Order = () => {
   const deleteItem = idx =>
     setOrders(newOrders.filter((_, index) => index !== idx));
 
-  const { name, surname, address, phone, handleInputChange } = useForm();
-
-  const formData = { name, surname, address, phone };
-
-  const onSubmit = e => {
-    e.preventDefault();
-
-    if (authentication) {
-      setOpenOrderConfirm(true);
-      console.log(formData);
-    } else {
-      logIn();
-    }
-  };
-
   return (
     <Layout>
       <OrderWrap>
-        <Title>Ваш заказ</Title>
-
+        <HeaderWrap>
+          <Title>Ваш заказ</Title>
+          <ClearOrderWrap>
+            <DeleteIcon style={{ marginRight: 10 }} />
+            <p>Очистить корзину</p>
+          </ClearOrderWrap>
+        </HeaderWrap>
         {newOrders.length > 0 ? (
           <OrderContent>
             <OrderListWrap>
@@ -73,53 +62,10 @@ const Order = () => {
               <Total>Всего товаров в корзине: {totalCounter}</Total>
               <Total>Сумма заказа: {formatCurrency(total)}</Total>
             </OrderListWrap>
-
-            <Form onSubmit={onSubmit}>
-              <Input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={name}
-                onChange={handleInputChange}
-              />
-              <Input
-                type="text"
-                name="surname"
-                placeholder="Surname"
-                value={surname}
-                onChange={handleInputChange}
-              />
-              <Input
-                type="text"
-                name="address"
-                placeholder="Address"
-                value={address}
-                onChange={handleInputChange}
-              />
-              <Input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                value={phone}
-                onChange={handleInputChange}
-              />
-              <button type="submit">Click submit</button>
-            </Form>
-
-            <Button
-              onClick={() => {
-                if (authentication) {
-                  setOpenOrderConfirm(true);
-                } else {
-                  logIn();
-                }
-              }}
-            >
-              Оформить заказ
-            </Button>
+            <OrderForm {...auth} />
           </OrderContent>
         ) : (
-          <EmptyList>Список заказов пуст</EmptyList>
+          <EmptyCart />
         )}
       </OrderWrap>
     </Layout>

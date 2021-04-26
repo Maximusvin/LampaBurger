@@ -11,7 +11,7 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 100px;
+  padding: 10px 100px;
   background-color: #0f0f0f;
   color: ${white};
   transition: all 0.3s linear;
