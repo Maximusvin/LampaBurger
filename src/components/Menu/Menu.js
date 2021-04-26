@@ -1,10 +1,25 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { Layout, ListItem, Offer, MenuPopap } from 'components';
 import { MenuWrap, Title, Section, TitleWrap } from './Menu.style';
+import ListItemSkeleton from './ListItemSceleton/ListItemSkeleton';
+import { setSortByBurger, setSortByOther } from 'redux/sort/sortActions';
 
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import Loader from 'react-loader-spinner';
+const Menu = () => {
+  const dbMenu = useSelector(state => state.menuDB.menuData);
+  const localMenuDb = { ...dbMenu };
+  const isLoaded = useSelector(state => state.menuDB.isLoaded);
+  const activeItemBurger = useSelector(state => state.sort.sortBurger);
+  const activeItemOther = useSelector(state => state.sort.sortOther);
+  const dispatch = useDispatch();
 
-const Menu = ({ dbMenu }) => {
+  const getActiveTypeBurger = type => {
+    dispatch(setSortByBurger(type));
+  };
+
+  const getActiveTypeOther = type => {
+    dispatch(setSortByOther(type));
+  };
+
   return (
     <MenuWrap id="menuWrap">
       <Offer />
@@ -12,23 +27,36 @@ const Menu = ({ dbMenu }) => {
         <Section id="burgers">
           <TitleWrap>
             <Title>Бургеры</Title>
-            <MenuPopap />
+            <MenuPopap
+              activeItem={activeItemBurger}
+              getActiveType={getActiveTypeBurger}
+            />
           </TitleWrap>
-          {dbMenu ? (
-            <ListItem itemList={dbMenu.burger} />
+
+          {isLoaded ? (
+            <ListItem
+              itemList={localMenuDb.burger}
+              activeItem={activeItemBurger}
+            />
           ) : (
-            <Loader type="ThreeDots" color="#ffd900" height={100} width={100} />
+            <ListItemSkeleton />
           )}
         </Section>
         <Section id="sets">
           <TitleWrap>
             <Title>Напитки / Сетты</Title>
-            <MenuPopap />
+            <MenuPopap
+              activeItem={activeItemOther}
+              getActiveType={getActiveTypeOther}
+            />
           </TitleWrap>
-          {dbMenu ? (
-            <ListItem itemList={dbMenu.other} />
+          {isLoaded ? (
+            <ListItem
+              itemList={localMenuDb.other}
+              activeItem={activeItemOther}
+            />
           ) : (
-            <Loader type="ThreeDots" color="#ffd900" height={100} width={100} />
+            <ListItemSkeleton />
           )}
         </Section>
       </Layout>

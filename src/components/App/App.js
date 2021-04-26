@@ -2,13 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchMenuData } from 'redux/menuDB/menuDBActions';
 import { Switch, Route } from 'react-router';
+import { authBase } from 'services/firebase';
 import { NavBar, CardProduct } from 'components';
 import { Home, Cart } from 'views';
-import ModalItem from 'UI/ModalItem/';
 import { Context } from 'Functions';
-
+import ModalItem from 'UI/ModalItem/';
 import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
-import { authBase } from 'services/firebase';
 
 import {
   useOpenItem,

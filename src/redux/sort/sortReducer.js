@@ -1,8 +1,15 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { setSortBy } from './sortActions';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
+import { setSortByBurger, setSortByOther } from './sortActions';
 
-const sort = createReducer('popular', {
-  [setSortBy]: (_, { payload }) => payload,
+const sortBurger = createReducer('popular', {
+  [setSortByBurger]: (_, { payload }) => payload,
 });
 
-export default sort;
+const sortOther = createReducer('popular', {
+  [setSortByOther]: (_, { payload }) => payload,
+});
+
+export default combineReducers({
+  sortBurger,
+  sortOther,
+});

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import EjectRoundedIcon from '@material-ui/icons/EjectRounded';
 import DetailsIcon from '@material-ui/icons/Details';
 
 import {
@@ -18,13 +17,11 @@ const sortList = [
   { name: 'алфавиту', type: 'alphabet' },
 ];
 
-// const sortList = ['sdasda', 'asdafa', 'eqwe'];
-
-const MenuPopap = () => {
+const MenuPopap = ({ activeItem, getActiveType }) => {
   const [showPopap, setShowPopap] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
   const popapRef = useRef();
-  const activeLabelName = sortList[activeItem].name;
+
+  const activeLabelName = sortList.find(item => item.type === activeItem).name;
 
   const handleOutsideClick = e => {
     if (!e.path.includes(popapRef.current)) {
@@ -36,8 +33,9 @@ const MenuPopap = () => {
     document.body.addEventListener('click', handleOutsideClick);
   }, []);
 
-  const getActiveItem = item => {
-    setActiveItem(item);
+  const getActiveItem = type => {
+    getActiveType(type);
+    setShowPopap(!showPopap);
   };
 
   const toggleVisiblePopap = () => {
@@ -67,8 +65,8 @@ const MenuPopap = () => {
             {sortList.map((item, index) => (
               <PopapItem
                 key={item.type + index}
-                onClick={() => getActiveItem(index)}
-                active={activeItem === index ? true : ''}
+                onClick={() => getActiveItem(item.type)}
+                active={activeItem === item.type ? true : ''}
               >
                 {item.name}
               </PopapItem>
