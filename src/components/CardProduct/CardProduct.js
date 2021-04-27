@@ -1,20 +1,16 @@
-import { useContext } from 'react';
-import { Context } from 'Functions';
 import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
 import Toppings from './Toppings/Toppings';
 import Choices from './Choices/Choices';
-
 // ==================
 import { useSelector, useDispatch } from 'react-redux';
-import { addToOrder } from '../../redux/orders/ordersActions';
-
+import { addToOrder } from 'redux/orders/ordersActions';
+import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
 // ==================
-
 import { ColorStyle } from 'components';
-import { useCount, useToppings } from 'hooks';
 import { totalPriceItem, formatCurrency } from 'Functions';
-import { yellow } from '../../assets/colors/index';
+import { yellow } from 'assets/colors/index';
+import { useCount, useToppings } from 'hooks';
 
 import {
   ProductCard,
@@ -31,17 +27,11 @@ import {
 } from './CardProduct.style';
 
 const CardProduct = () => {
-  const {
-    openItem,
-    setOpenItem,
-    orders: { orders, setOrders },
-  } = useContext(Context);
-
-  // ====================
+  const orders = useSelector(store => store.orders);
   const choice = useSelector(store => store.orders.choice);
+  const openItem = useSelector(store => store.openItemMenu);
   const dispatch = useDispatch();
   // const topping = useSelector(store => store.orders.topping);
-  // ====================
 
   const { name, url, weight, description } = openItem;
   const counter = useCount(openItem.count);
@@ -55,23 +45,24 @@ const CardProduct = () => {
     choice,
   };
 
-  const onAddToOrder = () => {
-    // setOrders([...orders, order]);
-    dispatch(addToOrder([...orders, order]));
+  const closeModal = () => {
+    dispatch(addOpenItemMenu(null));
+  };
 
-    setOpenItem(null);
+  const onAddToOrder = () => {
+    dispatch(addToOrder(order));
+    closeModal();
   };
 
   const editOrder = () => {
     const newOrders = [...orders];
     newOrders[openItem.index] = order;
-    setOrders(newOrders);
-    setOpenItem(null);
+    closeModal();
   };
 
   return (
     <ProductCard>
-      <ButtonClose onClick={() => setOpenItem(null)}>
+      <ButtonClose onClick={closeModal}>
         <CloseIcon style={{ color: '#f7cc10' }} />
       </ButtonClose>
       <DescrProduct>
@@ -81,7 +72,6 @@ const CardProduct = () => {
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
           {openItem.toppings && <Toppings {...toppings} />}
-          {/* {openItem.choices && <Choices {...choices} openItem={openItem} />} */}
           {openItem.choices && <Choices openItem={openItem} />}
         </div>
 

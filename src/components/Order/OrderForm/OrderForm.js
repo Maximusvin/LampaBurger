@@ -1,9 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useContext } from 'react';
+import { Context } from 'Functions';
+
+import { useDispatch } from 'react-redux';
 import { Button, Form, Input } from './OrderForm.style';
 import { useForm } from 'hooks';
 import { showOrderConfirm } from 'redux/orders/ordersActions';
 
-const OrderForm = ({ authentication, logIn }) => {
+const OrderForm = () => {
+  const {
+    auth: { authentication, logIn },
+  } = useContext(Context);
+
   const dispatch = useDispatch();
   const { name, surname, address, phone, handleInputChange } = useForm();
 

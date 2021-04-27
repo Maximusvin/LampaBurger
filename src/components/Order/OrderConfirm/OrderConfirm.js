@@ -1,8 +1,11 @@
 import { useContext } from 'react';
-import { Context } from 'Functions';
-import { totalPriceItem, formatCurrency, projection } from 'Functions';
+import { useSelector, useDispatch } from 'react-redux';
+import { totalPriceItem, formatCurrency, Context, projection } from 'Functions';
+import { dataBase } from 'services/firebase';
 import { ConfirmWrap, Title } from './OrderConfirm.style';
 import { Total, Text, Button } from 'components/Order/Order.style';
+import { clearOrdersList } from 'redux/orders/ordersActions';
+import { showOrderConfirm } from 'redux/orders/ordersActions';
 
 const rulesData = {
   name: ['name'],
@@ -16,23 +19,25 @@ const rulesData = {
   choice: ['choice', item => (item ? item : 'No choices')],
 };
 
-const OrderConfirm = () => {
+export const OrderConfirm = () => {
+  const dispatch = useDispatch();
+  const orders = useSelector(store => store.orders.orders);
+
   const {
     auth: { authentication },
-    orders: { orders, setOrders },
-    orderConfirm: { setOpenOrderConfirm },
-    dataBase,
   } = useContext(Context);
 
   const sendOrder = () => {
     const newOrder = orders.map(projection(rulesData));
+
     dataBase.ref('orders').push().set({
       nameClient: authentication.displayName,
       email: authentication.email,
       order: newOrder,
     });
-    setOrders([]);
-    setOpenOrderConfirm(false);
+
+    dispatch(clearOrdersList());
+    dispatch(showOrderConfirm(false));
   };
 
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
@@ -53,5 +58,3 @@ const OrderConfirm = () => {
     </ConfirmWrap>
   );
 };
-
-export default OrderConfirm;

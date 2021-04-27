@@ -7,6 +7,8 @@ import storage from 'redux-persist/lib/storage';
 import ordersReducer from './orders/ordersReducer';
 import sortReducer from './sort/sortReducer';
 import menuReducer from './menuDB/menuDBReducer';
+import openItemMenuReducer from './openItemMenu/openItemMenuReducer';
+import authReducer from './auth/authReducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -26,6 +28,8 @@ export const store = configureStore({
     orders: ordersReducer,
     sort: sortReducer,
     menuDB: menuReducer,
+    openItemMenu: openItemMenuReducer,
+    auth: authReducer,
 
     // basket: persistReducer(basketPersistConfig, basketReducer),
   },

@@ -1,10 +1,12 @@
 import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import { Context } from 'Functions';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import CountItem from '../../CardProduct/CountItem/CountItem';
 import { useCount } from 'hooks';
+import { deleteItemInOrders } from 'redux/orders/ordersActions';
 
 import {
   OrderItem,
@@ -19,7 +21,8 @@ import {
   Button,
 } from './OrderListItem.style';
 
-const OrderListItem = ({ order, onDelete, index }) => {
+const OrderListItem = ({ order, index }) => {
+  const dispatch = useDispatch();
   const { setOpenItem } = useContext(Context);
 
   const { name, url, choice, topping, shortcode, weight, count } = order;
@@ -33,6 +36,8 @@ const OrderListItem = ({ order, onDelete, index }) => {
     .filter(item => item.checked)
     .map(item => item.name)
     .join(', ');
+
+  console.log('toppingCheck:', toppingCheck);
 
   return (
     <OrderItem>
@@ -60,7 +65,7 @@ const OrderListItem = ({ order, onDelete, index }) => {
             <Button onClick={() => setOpenItem({ ...order, index })}>
               <CreateIcon />
             </Button>
-            <Button onClick={() => onDelete(index)}>
+            <Button onClick={() => dispatch(deleteItemInOrders(index))}>
               <CloseIcon />
             </Button>
           </div>

@@ -1,45 +1,26 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchMenuData } from 'redux/menuDB/menuDBActions';
+import { useSelector, useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router';
-import { authBase } from 'services/firebase';
-import { NavBar, CardProduct } from 'components';
-import { Home, Cart } from 'views';
+import { fetchMenuData } from 'redux/menuDB/menuDBActions';
+import { NavBar } from 'components';
+import { Home, Cart, Modals } from 'views';
 import { Context } from 'Functions';
-import ModalItem from 'UI/ModalItem/';
-import OrderConfirm from 'components/Order/OrderConfirm/OrderConfirm';
+import { authBase } from 'services/firebase';
 
-import {
-  useOpenItem,
-  useOrders,
-  useAuth,
-  useTitle,
-  useOrderConfirm,
-} from 'hooks';
+import { useAuth, useTitle } from 'hooks';
 
 function App() {
-  const auth = useAuth(authBase);
-  const { openItem, setOpenItem } = useOpenItem();
-  const orders = useOrders();
-  const orderConfirm = useOrderConfirm();
-  useTitle(openItem);
-
   const dispatch = useDispatch();
+  const auth = useAuth(authBase);
+  const openItem = useSelector(state => state.openItemMenu);
+  useTitle(openItem);
 
   useEffect(() => {
     dispatch(fetchMenuData());
   }, [dispatch]);
 
   return (
-    <Context.Provider
-      value={{
-        auth,
-        openItem,
-        setOpenItem,
-        orders,
-        orderConfirm,
-      }}
-    >
+    <Context.Provider value={{ auth }}>
       <NavBar />
 
       <Switch>
@@ -47,17 +28,7 @@ function App() {
         <Route path="/cart" component={Cart} />
       </Switch>
 
-      {openItem && (
-        <ModalItem onCloseModal={setOpenItem}>
-          <CardProduct />
-        </ModalItem>
-      )}
-
-      {orderConfirm.openOrderConfirm && (
-        <ModalItem onCloseModal={orderConfirm.setOpenOrderConfirm}>
-          <OrderConfirm />
-        </ModalItem>
-      )}
+      <Modals />
     </Context.Provider>
   );
 }
