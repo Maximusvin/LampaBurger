@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { Context } from 'Functions';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import CountItem from '../../CardProduct/CountItem/CountItem';
 import { useCount } from 'hooks';
 import { deleteItemInOrders } from 'redux/orders/ordersActions';
+import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
 
 import {
   OrderItem,
@@ -23,21 +22,15 @@ import {
 
 const OrderListItem = ({ order, index }) => {
   const dispatch = useDispatch();
-  const { setOpenItem } = useContext(Context);
-
   const { name, url, choice, topping, shortcode, weight, count } = order;
   const counter = useCount(count);
-
   const newOrder = { ...order, count: counter.count };
-
   const costItem = formatCurrency(totalPriceItem(newOrder));
 
   const toppingCheck = topping
     .filter(item => item.checked)
     .map(item => item.name)
     .join(', ');
-
-  console.log('toppingCheck:', toppingCheck);
 
   return (
     <OrderItem>
@@ -62,7 +55,9 @@ const OrderListItem = ({ order, index }) => {
           )}
 
           <div>
-            <Button onClick={() => setOpenItem({ ...order, index })}>
+            <Button
+              onClick={() => dispatch(addOpenItemMenu({ ...order, index }))}
+            >
               <CreateIcon />
             </Button>
             <Button onClick={() => dispatch(deleteItemInOrders(index))}>

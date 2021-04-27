@@ -4,7 +4,7 @@ import Toppings from './Toppings/Toppings';
 import Choices from './Choices/Choices';
 // ==================
 import { useSelector, useDispatch } from 'react-redux';
-import { addToOrder } from 'redux/orders/ordersActions';
+import { addToOrder, checkChoices } from 'redux/orders/ordersActions';
 import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
 // ==================
 import { ColorStyle } from 'components';
@@ -49,14 +49,17 @@ const CardProduct = () => {
     dispatch(addOpenItemMenu(null));
   };
 
-  const onAddToOrder = () => {
-    dispatch(addToOrder(order));
+  const editOrder = () => {
+    const newOrders = [...orders.orders];
+    newOrders[openItem.index] = order;
+    dispatch(addToOrder(newOrders));
     closeModal();
   };
 
-  const editOrder = () => {
-    const newOrders = [...orders];
-    newOrders[openItem.index] = order;
+  const onAddToOrder = () => {
+    // dispatch(addToOrder(order));
+    dispatch(addToOrder([...orders.orders, order]));
+    dispatch(checkChoices(''));
     closeModal();
   };
 

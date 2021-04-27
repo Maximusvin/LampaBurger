@@ -12,7 +12,7 @@ import {
 //  payload: [order],
 
 const orders = createReducer([], {
-  [addToOrder]: (state, { payload }) => [...state, payload],
+  [addToOrder]: (state, { payload }) => payload,
   [clearOrdersList]: (_, { payload }) => [],
   [deleteItemInOrders]: (state, { payload }) =>
     state.filter((_, index) => index !== payload),

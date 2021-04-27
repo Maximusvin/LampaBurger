@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Layout } from 'components';
 import OrderForm from './OrderForm/OrderForm';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 import EmptyCart from './EmptyCart';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { clearOrdersList } from 'redux/orders/ordersActions';
 
 import {
   OrderWrap,
@@ -18,6 +19,7 @@ import {
 } from './Order.style';
 
 const Order = () => {
+  const dispatch = useDispatch();
   const orders = useSelector(store => store.orders.orders);
 
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
@@ -28,7 +30,7 @@ const Order = () => {
       <OrderWrap>
         <HeaderWrap>
           <Title>Ваш заказ</Title>
-          <ClearOrderWrap>
+          <ClearOrderWrap onClick={() => dispatch(clearOrdersList())}>
             <DeleteIcon style={{ marginRight: 10 }} />
             <p>Очистить корзину</p>
           </ClearOrderWrap>
@@ -38,11 +40,7 @@ const Order = () => {
             <OrderListWrap>
               <OrderList>
                 {orders.map((order, index) => (
-                  <OrderListItem
-                    key={order.id + order.name}
-                    order={order}
-                    index={index}
-                  />
+                  <OrderListItem key={order.id} order={order} index={index} />
                 ))}
               </OrderList>
               <Total>Всего товаров в корзине: {totalCounter}</Total>
