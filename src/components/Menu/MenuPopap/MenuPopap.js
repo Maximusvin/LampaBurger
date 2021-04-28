@@ -35,6 +35,9 @@ const MenuPopap = ({ activeItem, getActiveType }) => {
 
   useEffect(() => {
     document.body.addEventListener('click', handleOutsideClick);
+    return () => {
+      document.body.removeEventListener('click', handleOutsideClick);
+    };
   }, []);
 
   const getActiveItem = type => {
