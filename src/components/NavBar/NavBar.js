@@ -31,8 +31,6 @@ const NavBar = () => {
   const totalCount = useSelector(getTotalCount);
   const totalPrice = useSelector(getTotalPrice);
 
-  console.log(totalPrice);
-
   return (
     <Header>
       <Logo to="/">

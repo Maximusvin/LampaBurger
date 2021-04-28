@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
 import CreateIcon from '@material-ui/icons/Create';
 import { totalPriceItem, formatCurrency } from 'Functions';
-import CountItem from '../../CardProduct/CountItem/CountItem';
+import OrderCountItem from '../OrderCountItem/OrderCountItem';
 import { useCount } from 'hooks';
 import { deleteItemInOrders } from 'redux/orders/ordersActions';
 import { addOpenItemMenu } from 'redux/modals/modalsActions';
@@ -24,7 +24,9 @@ const OrderListItem = ({ order, index }) => {
   const dispatch = useDispatch();
   const { name, url, choice, topping, shortcode, weight, count } = order;
   const counter = useCount(count);
-  const newOrder = { ...order, count: counter.count };
+  const newOrder = useSelector(store => store.orders.items[index]);
+  console.log(newOrder);
+
   const costItem = formatCurrency(totalPriceItem(newOrder));
 
   const toppingCheck = topping
@@ -36,7 +38,7 @@ const OrderListItem = ({ order, index }) => {
     <OrderItem>
       <ImageWrap>
         <Image src={url} alt={name} />
-        <CountItem {...counter} />
+        <OrderCountItem index={index} {...counter} />
       </ImageWrap>
 
       <Description>

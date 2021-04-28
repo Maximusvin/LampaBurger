@@ -1,34 +1,23 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
 import {
   addToOrder,
-  setTotalPrice,
-  setTotalCount,
   deleteItemInOrders,
   clearOrdersList,
+  changeItemToOrders,
 } from './ordersActions';
 
 const items = createReducer([], {
   [addToOrder]: (_, { payload }) => payload,
-  // [addToOrder]: (state, { payload }) => ({
-  //   ...state,
-  //   items: payload,
-  //   totalCount: state.items.length,
-  // }),
-  [clearOrdersList]: (_, { payload }) => [],
+  [clearOrdersList]: (_, actions) => [],
+  [changeItemToOrders]: (state, { payload }) =>
+    state.map((order, index) =>
+      index === payload.idx ? { ...order, count: payload.count } : order,
+    ),
+
   [deleteItemInOrders]: (state, { payload }) =>
     state.filter((_, index) => index !== payload),
 });
 
-const totalPrice = createReducer(0, {
-  [setTotalPrice]: (state, { payload }) => state + payload,
-});
-
-// const totalCount = createReducer(0, {
-//   [setTotalCount]: (state, { payload }) => items.length,
-// });
-
 export default combineReducers({
   items,
-  totalPrice,
-  // totalCount,
 });

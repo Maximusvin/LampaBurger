@@ -3,6 +3,9 @@ import { createAction } from '@reduxjs/toolkit';
 export const addToOrder = createAction('orders/addToOrder');
 export const deleteItemInOrders = createAction('orders/deleteItemInOrders');
 export const clearOrdersList = createAction('orders/clearOrdersList');
+export const changeItemToOrders = createAction(
+  'orders/changeItemToOrders',
+  (idx, count) => ({ payload: { idx, count } }),
+);
 
-export const setTotalPrice = createAction('orders/totalPrice');
-export const setTotalCount = createAction('orders/setTotalCount');
+console.log('changeItemToOrders', changeItemToOrders);
