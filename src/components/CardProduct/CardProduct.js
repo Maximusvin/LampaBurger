@@ -1,16 +1,14 @@
+import { useSelector, useDispatch } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
 import CountItem from './CountItem/CountItem';
 import Toppings from './Toppings/Toppings';
 import Choices from './Choices/Choices';
-// ==================
-import { useSelector, useDispatch } from 'react-redux';
-import { addToOrder, checkChoices } from 'redux/orders/ordersActions';
-import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
-// ==================
+import { addToOrder } from 'redux/orders/ordersActions';
+import { addOpenItemMenu } from 'redux/modals/modalsActions';
 import { ColorStyle } from 'components';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from 'assets/colors/index';
-import { useCount, useToppings } from 'hooks';
+import { useCount, useToppings, useChoices } from 'hooks';
 
 import {
   ProductCard,
@@ -27,39 +25,37 @@ import {
 } from './CardProduct.style';
 
 const CardProduct = () => {
-  const orders = useSelector(store => store.orders);
-  const choice = useSelector(store => store.orders.choice);
-  const openItem = useSelector(store => store.openItemMenu);
   const dispatch = useDispatch();
-  // const topping = useSelector(store => store.orders.topping);
-
+  const orders = useSelector(store => store.orders);
+  const openItem = useSelector(store => store.modals.openItemMenu);
   const { name, url, weight, description } = openItem;
   const counter = useCount(openItem.count);
   const toppings = useToppings(openItem);
+  const choices = useChoices(openItem);
   const isEdit = openItem.index > -1;
 
   const order = {
     ...openItem,
     count: counter.count,
     topping: toppings.toppings,
-    choice,
+    choice: choices.choice,
   };
+
+  const totalPrice = totalPriceItem(order);
 
   const closeModal = () => {
     dispatch(addOpenItemMenu(null));
   };
 
   const editOrder = () => {
-    const newOrders = [...orders.orders];
+    const newOrders = [...orders.items];
     newOrders[openItem.index] = order;
     dispatch(addToOrder(newOrders));
     closeModal();
   };
 
   const onAddToOrder = () => {
-    // dispatch(addToOrder(order));
-    dispatch(addToOrder([...orders.orders, order]));
-    dispatch(checkChoices(''));
+    dispatch(addToOrder([...orders.items, order]));
     closeModal();
   };
 
@@ -75,7 +71,8 @@ const CardProduct = () => {
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
           {openItem.toppings && <Toppings {...toppings} />}
-          {openItem.choices && <Choices openItem={openItem} />}
+          {/* {openItem.choices && <Choices openItem={openItem}  />} */}
+          {openItem.choices && <Choices openItem={openItem} {...choices} />}
         </div>
 
         <Control>
@@ -84,7 +81,7 @@ const CardProduct = () => {
             onClick={isEdit ? editOrder : onAddToOrder}
             disabled={openItem.choices && !order.choice}
           >
-            <FinalCost>{formatCurrency(totalPriceItem(order))}</FinalCost>
+            <FinalCost>{formatCurrency(totalPrice)}</FinalCost>
             <Add>{isEdit ? 'Редактировать заказ' : 'Добавить к заказу'}</Add>
           </Button>
         </Control>

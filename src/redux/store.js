@@ -4,11 +4,10 @@ import logger from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import ordersReducer from './orders/ordersReducer';
-import sortReducer from './sort/sortReducer';
-import menuReducer from './menuDB/menuDBReducer';
-import openItemMenuReducer from './openItemMenu/openItemMenuReducer';
-import authReducer from './auth/authReducer';
+import orders from './orders/ordersReducer';
+import sort from './sort/sortReducer';
+import menuDB from './menuDB/menuDBReducer';
+import modals from './modals/modalsReducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -25,11 +24,10 @@ const basketPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    orders: ordersReducer,
-    sort: sortReducer,
-    menuDB: menuReducer,
-    openItemMenu: openItemMenuReducer,
-    auth: authReducer,
+    orders,
+    sort,
+    menuDB,
+    modals,
 
     // basket: persistReducer(basketPersistConfig, basketReducer),
   },

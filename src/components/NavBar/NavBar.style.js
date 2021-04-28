@@ -62,6 +62,7 @@ export const ButtonAuth = styled.button`
 `;
 
 export const ButtonCart = styled(NavLink)`
+  position: relative;
   color: #ffd900;
   background: transparent;
   cursor: pointer;
@@ -93,4 +94,25 @@ export const UserName = styled.p`
 export const UserImg = styled.img`
   width: 30px;
   margin-right: 20px;
+`;
+
+export const Price = styled.span`
+  display: block;
+  margin-right: 5px;
+  padding-top: 5px;
+`;
+
+export const Count = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  color: #fff;
 `;

@@ -1,11 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { ChoiceWrap, Title, ChoiceLabel, ChoiceRadio } from './Choices.style';
-import { checkChoices } from 'redux/orders/ordersActions';
 
-const Choices = ({ openItem }) => {
-  const choice = useSelector(state => state.orders.choice);
-  const dispatch = useDispatch();
-
+const Choices = ({ openItem, choice, changeChoices }) => {
   return (
     <>
       <Title>Выбор:</Title>
@@ -17,7 +12,7 @@ const Choices = ({ openItem }) => {
               name="choices"
               value={item}
               checked={choice === item}
-              onChange={e => dispatch(checkChoices(e.target.value))}
+              onChange={changeChoices}
             />
             {item}
           </ChoiceLabel>

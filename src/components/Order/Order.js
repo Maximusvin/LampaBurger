@@ -20,7 +20,7 @@ import {
 
 const Order = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(store => store.orders.orders);
+  const orders = useSelector(store => store.orders.items);
 
   const total = orders.reduce((total, item) => totalPriceItem(item) + total, 0);
   const totalCounter = orders.reduce((total, item) => total + item.count, 0);

@@ -4,7 +4,7 @@ import { Context } from 'Functions';
 import { useDispatch } from 'react-redux';
 import { Button, Form, Input } from './OrderForm.style';
 import { useForm } from 'hooks';
-import { showOrderConfirm } from 'redux/orders/ordersActions';
+import { showOrderConfirm } from 'redux/modals/modalsActions';
 
 const OrderForm = () => {
   const {

@@ -11,9 +11,9 @@ import { useAuth, useTitle } from 'hooks';
 
 function App() {
   const dispatch = useDispatch();
-  const auth = useAuth(authBase);
   const openItem = useSelector(state => state.openItemMenu);
   useTitle(openItem);
+  const auth = useAuth(authBase);
 
   useEffect(() => {
     dispatch(fetchMenuData());

@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
-
+import { addOpenItemMenu } from 'redux/modals/modalsActions';
 import { List, Item, Header, Title, Сost, Image } from './ListItem.style';
 import { formatCurrency } from 'Functions';
 import { useSortItemMenu } from 'hooks';

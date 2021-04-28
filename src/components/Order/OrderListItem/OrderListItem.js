@@ -5,7 +5,7 @@ import { totalPriceItem, formatCurrency } from 'Functions';
 import CountItem from '../../CardProduct/CountItem/CountItem';
 import { useCount } from 'hooks';
 import { deleteItemInOrders } from 'redux/orders/ordersActions';
-import { addOpenItemMenu } from 'redux/openItemMenu/openItemMenuActions';
+import { addOpenItemMenu } from 'redux/modals/modalsActions';
 
 import {
   OrderItem,

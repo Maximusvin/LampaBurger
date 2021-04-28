@@ -5,7 +5,7 @@ import { dataBase } from 'services/firebase';
 import { ConfirmWrap, Title } from './OrderConfirm.style';
 import { Total, Text, Button } from 'components/Order/Order.style';
 import { clearOrdersList } from 'redux/orders/ordersActions';
-import { showOrderConfirm } from 'redux/orders/ordersActions';
+import { showOrderConfirm } from 'redux/modals/modalsActions';
 
 const rulesData = {
   name: ['name'],
@@ -21,7 +21,7 @@ const rulesData = {
 
 export const OrderConfirm = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(store => store.orders.orders);
+  const orders = useSelector(store => store.orders.items);
 
   const {
     auth: { authentication },
