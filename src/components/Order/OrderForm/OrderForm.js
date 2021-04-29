@@ -54,12 +54,14 @@ let OrderForm = ({ handleSubmit, submitting }) => {
         component={customInput}
         type="text"
         placeholder="Address"
+        validate={required}
       />
       <Field
         name="phone"
         component={customInput}
         type="tel"
         placeholder="Phone"
+        validate={required}
       />
 
       <Button type="submit" disabled={submitting}>
