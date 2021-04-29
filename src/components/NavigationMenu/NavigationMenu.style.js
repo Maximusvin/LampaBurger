@@ -10,6 +10,10 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   margin-right: 25px;
+
+  @media (max-width: 576px) {
+    margin-right: 15px;
+  }
 `;
 
 export const Img = styled.img`
@@ -29,6 +33,11 @@ export const Link = styled.a`
   width: 135px;
   transition: all 0.2s linear;
   text-transform: uppercase;
+
+  @media (max-width: 576px) {
+    padding: 10px 20px;
+    width: 112px;
+  }
 
   :hover {
     color: #f1ce03;

@@ -15,18 +15,23 @@ export const TitleWrap = styled.div`
 
   @media (max-width: 576px) {
     margin-bottom: 20px;
+    flex-direction: column;
   }
 `;
 
 export const Title = styled.h2`
   font-size: 55px;
 
+  @media (max-width: 992px) {
+    font-size: 38px;
+  }
+
   @media (max-width: 576px) {
-    font-size: 30px;
+    font-size: 26px;
+    margin-bottom: 15px;
   }
 `;
 
 export const Section = styled.section`
   padding-top: 80px;
-  padding-bottom: 50px;
 `;

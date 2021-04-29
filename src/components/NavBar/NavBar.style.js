@@ -18,7 +18,8 @@ export const Header = styled.header`
   border-bottom: 1px solid #373737;
 
   @media (max-width: 576px) {
-    padding: 10px 15px;
+    flex-direction: column;
+    padding: 25px 0;
   }
 `;
 
@@ -26,6 +27,10 @@ export const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
   color: ${white};
+
+  @media (max-width: 576px) {
+    margin-bottom: 15px;
+  }
 `;
 
 export const ImgLogo = styled.img`
@@ -42,6 +47,11 @@ export const ControlsWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 576px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const ButtonAuth = styled.button`
@@ -74,6 +84,10 @@ export const ButtonCart = styled(NavLink)`
   background-color: #2f2f2f;
   padding: 5px 20px;
   border-radius: 25px;
+
+  @media (max-width: 576px) {
+    margin-bottom: 10px;
+  }
 
   :hover {
     background-color: #454545;

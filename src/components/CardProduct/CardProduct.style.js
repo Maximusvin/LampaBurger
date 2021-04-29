@@ -48,7 +48,7 @@ export const Button = styled.button`
   align-items: center;
   outline: none;
   width: 100%;
-  border: 4px solid #ffd900;
+  border: 4px solid ${props => (props.disabled ? '#646464' : '#ffd900')};
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;
@@ -61,7 +61,7 @@ export const Button = styled.button`
   padding: 0;
 
   :hover {
-    border: 4px solid #f1ce03;
+    border: 4px solid ${props => (props.disabled ? '#646464' : '#f1ce03')};
   }
 `;
 
@@ -79,13 +79,13 @@ export const Add = styled.span`
   display: block;
   width: 65%;
   color: #0f0f0f;
-  background: #ffd900;
+  background: ${props => (props.disabled ? '#646464' : '#ffd900')};
   padding: 12px;
   text-align: center;
   transition: all 0.2s cubic-bezier(0.4, 0.01, 0.63, 1);
 
   :hover {
-    background: #f1ce03;
+    background: ${props => (props.disabled ? '#646464' : '#f1ce03')};
   }
 `;
 

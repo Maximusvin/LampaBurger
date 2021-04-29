@@ -73,7 +73,6 @@ const CardProduct = () => {
             {description} <ColorStyle color={yellow}>{weight}</ColorStyle>
           </Description>
           {openItem.toppings && <Toppings {...toppings} />}
-          {/* {openItem.choices && <Choices openItem={openItem}  />} */}
           {openItem.choices && <Choices openItem={openItem} {...choices} />}
         </div>
 
@@ -84,7 +83,9 @@ const CardProduct = () => {
             disabled={openItem.choices && !order.choice}
           >
             <FinalCost>{formatCurrency(totalPrice)}</FinalCost>
-            <Add>{isEdit ? 'Редактировать заказ' : 'Добавить к заказу'}</Add>
+            <Add disabled={openItem.choices && !order.choice}>
+              {isEdit ? 'Редактировать заказ' : 'Добавить к заказу'}
+            </Add>
           </Button>
         </Control>
       </DescrProduct>

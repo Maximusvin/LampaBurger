@@ -42,8 +42,6 @@ export const OrderConfirm = () => {
       order: newOrder,
     });
 
-    console.log('click');
-
     dispatch(clearOrdersList());
     dispatch(showOrderConfirm(false));
   };

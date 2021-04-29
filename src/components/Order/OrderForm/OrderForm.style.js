@@ -8,10 +8,17 @@ export const Form = styled.form`
   background-color: #1d1d1d;
 `;
 
-export const Input = styled.input`
+export const InputWrap = styled.div`
+  color: ${props => (props.error ? '#ff0000' : '#fff')};
+  font-size: 12px;
   margin-bottom: 15px;
+`;
+
+export const Input = styled.input`
   width: 100%;
   padding: 10px 15px;
+  border: 1px solid
+    ${({ touched, error }) => (touched && error ? '#ff0000' : '')};
 `;
 
 export const Button = styled.button`

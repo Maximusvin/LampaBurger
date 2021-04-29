@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import bgOffer from '../../../assets/images/hd-1.jpg';
+import bgOffer from 'assets/images/hd-1.jpg';
 
-import { white } from '../../../assets/colors';
+import { white } from 'assets/colors';
 
 export const OfferWrap = styled.div`
   background: url(${bgOffer});
@@ -16,7 +16,8 @@ export const Description = styled.div`
   color: ${white};
 
   @media (max-width: 992px) {
-    width: 750px;
+    width: 100%;
+    padding-top: 120px;
   }
 
   @media (max-width: 768px) {
@@ -25,6 +26,7 @@ export const Description = styled.div`
 
   @media (max-width: 576px) {
     width: 100%;
+    text-align: center;
   }
 `;
 
@@ -34,6 +36,10 @@ export const Title = styled.h2`
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 25px;
+
+  @media (max-width: 992px) {
+    font-size: 44px;
+  }
 
   @media (max-width: 576px) {
     font-size: 33px;

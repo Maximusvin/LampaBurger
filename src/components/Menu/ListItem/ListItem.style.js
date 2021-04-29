@@ -5,6 +5,10 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 35px;
+
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(auto-fit, minmax(253px, 1fr));
+  }
 `;
 
 export const Item = styled.li`
@@ -13,7 +17,9 @@ export const Item = styled.li`
   font-size: 20px;
 
   @media (max-width: 576px) {
-    max-width: 100%;
+    max-width: 255px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -29,13 +35,21 @@ export const Title = styled.p`
   text-transform: uppercase;
   font-weight: 700;
 
+  @media (max-width: 992px) {
+    font-size: 21px;
+  }
+
   @media (max-width: 576px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 `;
 
 export const Сost = styled.p`
   text-align: right;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
 `;
 
 export const Image = styled.img`
@@ -48,6 +62,11 @@ export const Image = styled.img`
 
   :hover {
     transform: rotate(5deg) scale(1.1);
+  }
+
+  @media (max-width: 992px) {
+    max-width: 280px;
+    top: -18px;
   }
 
   @media (max-width: 576px) {

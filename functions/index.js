@@ -35,7 +35,7 @@ const sendOrderEmail = data => {
         (sum, item) => sum + item.price * item.count,
         0,
       )} грн.</p>
-        <p>Ожидайте курьера.</p> 
+        <p>Ожидайте курьера по адрессу: ${data.order.address}.</p> 
         <p>С уважением, <a href="https://lampaburger.web.app/">LampaBurger</a></p> 
     </div>
       `,

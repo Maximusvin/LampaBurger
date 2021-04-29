@@ -55,6 +55,9 @@ export const OrderContent = styled.div`
 `;
 
 export const OrderListWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 600px;
   padding: 40px 30px 40px;
   background-color: #1d1d1d;

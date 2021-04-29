@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Layout } from 'components';
-import OrderFormPage from './OrderForm/OrderForm';
+import OrderForm from './OrderForm/OrderForm';
 import { formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 import EmptyCart from './EmptyCart';
@@ -34,10 +34,12 @@ const Order = () => {
       <OrderWrap>
         <HeaderWrap>
           <Title>Ваш заказ</Title>
-          <ClearOrderWrap onClick={() => dispatch(clearOrdersList())}>
-            <DeleteIcon style={{ marginRight: 10 }} />
-            <p>Очистить корзину</p>
-          </ClearOrderWrap>
+          {orders.length > 0 && (
+            <ClearOrderWrap onClick={() => dispatch(clearOrdersList())}>
+              <DeleteIcon style={{ marginRight: 10 }} />
+              <p>Очистить корзину</p>
+            </ClearOrderWrap>
+          )}
         </HeaderWrap>
         {orders.length > 0 ? (
           <OrderContent>
@@ -47,10 +49,12 @@ const Order = () => {
                   <OrderListItem key={order.id} order={order} index={index} />
                 ))}
               </OrderList>
-              <Total>Всего товаров в корзине: {totalCount}</Total>
-              <Total>Сумма заказа: {formatCurrency(totalPrice)}</Total>
+              <div>
+                <Total>Всего товаров в корзине: {totalCount}</Total>
+                <Total>Сумма заказа: {formatCurrency(totalPrice)}</Total>
+              </div>
             </OrderListWrap>
-            <OrderFormPage />
+            <OrderForm />
           </OrderContent>
         ) : (
           <EmptyCart />
