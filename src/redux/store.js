@@ -1,10 +1,14 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  getDefaultMiddleware,
+  combineReducers,
+} from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import orders from './orders/ordersReducer';
+import ordersReducer from './orders/ordersReducer';
 import sort from './sort/sortReducer';
 import menuDB from './menuDB/menuDBReducer';
 import modals from './modals/modalsReducer';
@@ -18,21 +22,26 @@ const middleware = [
 ];
 
 const basketPersistConfig = {
-  key: 'basket',
+  key: 'orders',
   storage,
+  blacklist: ['sort', 'menuDB', 'modals'],
 };
 
-export const store = configureStore({
-  reducer: {
-    orders,
-    sort,
-    menuDB,
-    modals,
+const rootReducer = combineReducers({
+  orders: ordersReducer,
+  sort,
+  menuDB,
+  modals,
+});
 
-    // basket: persistReducer(basketPersistConfig, basketReducer),
-  },
+const persistedReducer = persistReducer(basketPersistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
   devTools: process.env.NODE_ENV === 'development',
   middleware,
 });
 
-export const persistor = persistStore(store);
+const persistor = persistStore(store);
+
+export { store, persistor };

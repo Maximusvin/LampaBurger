@@ -8,7 +8,7 @@ import { Context } from 'Functions';
 import { authBase } from 'services/firebase';
 import { useAuth, useTitle } from 'hooks';
 import { clearOrdersList } from 'redux/orders/ordersActions';
-import { getTotalCount } from 'redux/orders/ordersSelector';
+import { getTotalCount, getOrders } from 'redux/orders/ordersSelector';
 
 function App() {
   const dispatch = useDispatch();

@@ -7,5 +7,3 @@ export const changeItemToOrders = createAction(
   'orders/changeItemToOrders',
   (idx, count) => ({ payload: { idx, count } }),
 );
-
-console.log('changeItemToOrders', changeItemToOrders);

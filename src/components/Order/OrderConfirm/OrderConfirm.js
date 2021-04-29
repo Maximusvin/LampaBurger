@@ -6,6 +6,7 @@ import { ConfirmWrap, Title } from './OrderConfirm.style';
 import { Total, Text, Button } from 'components/Order/Order.style';
 import { clearOrdersList } from 'redux/orders/ordersActions';
 import { showOrderConfirm } from 'redux/modals/modalsActions';
+import { getOrders } from 'redux/orders/ordersSelector';
 
 const rulesData = {
   name: ['name'],
@@ -21,7 +22,7 @@ const rulesData = {
 
 export const OrderConfirm = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(store => store.orders.items);
+  const orders = useSelector(getOrders);
 
   const {
     auth: { authentication },

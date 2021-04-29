@@ -10,8 +10,7 @@ import {
 
 const CountItem = ({ index }) => {
   const dispatch = useDispatch();
-  const count = useSelector(state => state.orders.items[index].count);
-  console.log(count);
+  const count = useSelector(state => state.orders[index].count);
 
   const onChangeInput = e =>
     dispatch(changeItemToOrders(index, Number(e.target.value)));

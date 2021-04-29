@@ -9,6 +9,7 @@ import { ColorStyle } from 'components';
 import { totalPriceItem, formatCurrency } from 'Functions';
 import { yellow } from 'assets/colors/index';
 import { useCount, useToppings, useChoices } from 'hooks';
+import { getOrders } from 'redux/orders/ordersSelector';
 
 import {
   ProductCard,
@@ -26,7 +27,8 @@ import {
 
 const CardProduct = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(store => store.orders);
+  const orders = useSelector(getOrders);
+
   const openItem = useSelector(store => store.modals.openItemMenu);
   const { name, url, weight, description } = openItem;
   const counter = useCount(openItem.count);
@@ -48,14 +50,14 @@ const CardProduct = () => {
   };
 
   const editOrder = () => {
-    const newOrders = [...orders.items];
+    const newOrders = [...orders];
     newOrders[openItem.index] = order;
     dispatch(addToOrder(newOrders));
     closeModal();
   };
 
   const onAddToOrder = () => {
-    dispatch(addToOrder([...orders.items, order]));
+    dispatch(addToOrder([...orders, order]));
     closeModal();
   };
 

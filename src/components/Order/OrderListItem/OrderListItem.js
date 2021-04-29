@@ -22,7 +22,7 @@ import {
 const OrderListItem = ({ order, index }) => {
   const dispatch = useDispatch();
   const { name, url, choice, topping, shortcode, weight } = order;
-  const newOrder = useSelector(store => store.orders.items[index]);
+  const newOrder = useSelector(store => store.orders[index]);
 
   const costItem = formatCurrency(totalPriceItem(newOrder));
 

@@ -6,7 +6,11 @@ import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 import EmptyCart from './EmptyCart';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { clearOrdersList } from 'redux/orders/ordersActions';
-import { getTotalCount, getTotalPrice } from 'redux/orders/ordersSelector';
+import {
+  getTotalCount,
+  getTotalPrice,
+  getOrders,
+} from 'redux/orders/ordersSelector';
 
 import {
   OrderWrap,
@@ -21,8 +25,7 @@ import {
 
 const Order = () => {
   const dispatch = useDispatch();
-  const orders = useSelector(store => store.orders.items);
-
+  const orders = useSelector(getOrders);
   const totalCount = useSelector(getTotalCount);
   const totalPrice = useSelector(getTotalPrice);
 
