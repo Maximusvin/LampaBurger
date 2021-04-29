@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Layout } from 'components';
-import OrderForm from './OrderForm/OrderForm';
+import OrderFormPage from './OrderForm/OrderForm';
 import { formatCurrency } from 'Functions';
 import OrderListItem from 'components/Order/OrderListItem/OrderListItem';
 import EmptyCart from './EmptyCart';
@@ -50,7 +50,7 @@ const Order = () => {
               <Total>Всего товаров в корзине: {totalCount}</Total>
               <Total>Сумма заказа: {formatCurrency(totalPrice)}</Total>
             </OrderListWrap>
-            <OrderForm />
+            <OrderFormPage />
           </OrderContent>
         ) : (
           <EmptyCart />

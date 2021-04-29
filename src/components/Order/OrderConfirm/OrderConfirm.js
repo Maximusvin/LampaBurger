@@ -23,6 +23,9 @@ const rulesData = {
 export const OrderConfirm = () => {
   const dispatch = useDispatch();
   const orders = useSelector(getOrders);
+  const formData = useSelector(state => state.form.userContacts.values);
+
+  console.log(JSON.stringify(formData));
 
   const {
     auth: { authentication },
@@ -34,6 +37,8 @@ export const OrderConfirm = () => {
     dataBase.ref('orders').push().set({
       nameClient: authentication.displayName,
       email: authentication.email,
+      address: formData.address,
+      phone: formData.phone,
       order: newOrder,
     });
 

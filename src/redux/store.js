@@ -6,6 +6,7 @@ import {
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
+import { reducer as formReducer } from 'redux-form';
 import storage from 'redux-persist/lib/storage';
 
 import ordersReducer from './orders/ordersReducer';
@@ -24,7 +25,7 @@ const middleware = [
 const basketPersistConfig = {
   key: 'orders',
   storage,
-  blacklist: ['sort', 'menuDB', 'modals'],
+  blacklist: ['sort', 'menuDB', 'modals', 'form'],
 };
 
 const rootReducer = combineReducers({
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   sort,
   menuDB,
   modals,
+  form: formReducer,
 });
 
 const persistedReducer = persistReducer(basketPersistConfig, rootReducer);
