@@ -6,6 +6,10 @@ export const OrderWrap = styled.section`
   padding-top: 80px;
   padding-bottom: 50px;
   color: ${white};
+
+  @media (max-width: 576px) {
+    padding-top: 180px;
+  }
 `;
 
 export const HeaderWrap = styled.div`
@@ -16,6 +20,7 @@ export const HeaderWrap = styled.div`
 
   @media (max-width: 576px) {
     margin-bottom: 20px;
+    flex-direction: column;
   }
 `;
 
@@ -38,6 +43,7 @@ export const Title = styled.h2`
 
   @media (max-width: 576px) {
     font-size: 30px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -51,6 +57,7 @@ export const OrderContent = styled.div`
 
   @media (max-width: 576px) {
     flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -61,6 +68,11 @@ export const OrderListWrap = styled.div`
   width: 600px;
   padding: 40px 30px 40px;
   background-color: #1d1d1d;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 export const OrderList = styled.ul`
@@ -72,7 +84,7 @@ export const OrderList = styled.ul`
   @media (max-width: 576px) {
     width: 100%;
     padding: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
 `;
 

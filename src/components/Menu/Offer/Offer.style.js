@@ -27,6 +27,7 @@ export const Description = styled.div`
   @media (max-width: 576px) {
     width: 100%;
     text-align: center;
+    padding-top: 190px;
   }
 `;
 

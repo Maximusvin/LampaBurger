@@ -7,6 +7,10 @@ export const ProductCard = styled.div`
   justify-content: space-between;
   color: ${white};
   padding: 40px;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 `;
 
 export const DescrProduct = styled.div`
@@ -15,6 +19,12 @@ export const DescrProduct = styled.div`
   justify-content: space-between;
   width: 60%;
   margin-right: 20px;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    margin-right: 0;
+    order: 1;
+  }
 `;
 
 export const Title = styled.h2`
@@ -22,6 +32,11 @@ export const Title = styled.h2`
   line-height: 58px;
   color: #f4f4f4;
   margin-bottom: 15px;
+
+  @media (max-width: 576px) {
+    font-size: 22px;
+    text-align: center;
+  }
 `;
 
 export const Description = styled.p`
@@ -32,10 +47,21 @@ export const Description = styled.p`
   border-left: 4px solid #ffd900;
   padding-left: 16px;
   margin-bottom: 24px;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 `;
 
 export const ImageWrap = styled.div`
   width: 35%;
+
+  @media (max-width: 576px) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    order: 0;
+  }
 `;
 
 export const Image = styled.img``;
@@ -73,6 +99,11 @@ export const FinalCost = styled.span`
   font-size: 18px;
   text-transform: none;
   display: block;
+
+  @media (max-width: 576px) {
+    font-size: 16px;
+    width: 50%;
+  }
 `;
 
 export const Add = styled.span`
@@ -86,6 +117,11 @@ export const Add = styled.span`
 
   :hover {
     background: ${props => (props.disabled ? '#646464' : '#f1ce03')};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+    width: 50%;
   }
 `;
 

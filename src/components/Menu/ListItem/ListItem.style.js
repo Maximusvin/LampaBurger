@@ -17,7 +17,7 @@ export const Item = styled.li`
   font-size: 20px;
 
   @media (max-width: 576px) {
-    max-width: 255px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }

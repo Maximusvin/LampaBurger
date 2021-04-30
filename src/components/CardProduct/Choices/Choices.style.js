@@ -6,10 +6,18 @@ export const ChoiceWrap = styled.div`
   flex-wrap: wrap;
   width: 500px;
   margin-bottom: 15px;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h3`
   margin-bottom: 10px;
+
+  @media (max-width: 576px) {
+    text-align: center;
+  }
 `;
 
 export const ChoiceLabel = styled.label`

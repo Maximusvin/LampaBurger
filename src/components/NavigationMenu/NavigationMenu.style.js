@@ -6,13 +6,17 @@ export const NavList = styled.ul`
   display: flex;
   align-items: center;
   color: #fff;
+
+  @media (max-width: 576px) {
+    justify-content: space-around;
+  }
 `;
 
 export const NavItem = styled.li`
   margin-right: 25px;
 
   @media (max-width: 576px) {
-    margin-right: 15px;
+    margin-right: 0;
   }
 `;
 

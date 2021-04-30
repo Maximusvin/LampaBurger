@@ -66,6 +66,7 @@ const CardProduct = () => {
       <ButtonClose onClick={closeModal}>
         <CloseIcon style={{ color: '#f7cc10' }} />
       </ButtonClose>
+
       <DescrProduct>
         <div>
           <Title>{name}</Title>

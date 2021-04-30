@@ -6,6 +6,10 @@ export const Form = styled.form`
   flex-direction: column;
   padding: 40px 30px 40px;
   background-color: #1d1d1d;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 export const InputWrap = styled.div`
