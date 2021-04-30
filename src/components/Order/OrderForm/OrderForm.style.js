@@ -7,7 +7,11 @@ export const Form = styled.form`
   padding: 40px 30px 40px;
   background-color: #1d1d1d;
 
-  @media (max-width: 576px) {
+  @media (max-width: 992px) {
+    width: 225px;
+  }
+
+  @media (max-width: 768px) {
     width: 100%;
   }
 `;

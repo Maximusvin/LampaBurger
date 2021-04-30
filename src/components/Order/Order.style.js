@@ -51,13 +51,16 @@ export const OrderContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  width: 1000px;
 
-  @media (max-width: 576px) {
-    flex-direction: column;
+  @media (max-width: 1283px) {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -69,9 +72,17 @@ export const OrderListWrap = styled.div`
   padding: 40px 30px 40px;
   background-color: #1d1d1d;
 
-  @media (max-width: 576px) {
+  @media (max-width: 1283px) {
+    width: 530px;
+  }
+
+  @media (max-width: 992px) {
+    width: 430px;
+  }
+
+  @media (max-width: 768px) {
     width: 100%;
-    padding: 0;
+    padding: 20px 20px 0;
   }
 `;
 
@@ -83,7 +94,6 @@ export const OrderList = styled.ul`
 
   @media (max-width: 576px) {
     width: 100%;
-    padding: 20px;
     margin-bottom: 0px;
   }
 `;

@@ -17,6 +17,10 @@ export const Header = styled.header`
   transition: all 0.3s linear;
   border-bottom: 1px solid #373737;
 
+  @media (max-width: 768px) {
+    padding: 10px 5px;
+  }
+
   @media (max-width: 576px) {
     flex-direction: column;
     padding: 25px 0;
